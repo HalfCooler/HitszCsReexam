@@ -1,0 +1,4677 @@
+{
+    "single_choice": [
+        {
+            "id": 1,
+            "question": "Internet 中 MAC 地址和 IP 地址转换采用（ ）协议。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "ICMP (Internet Control Message Protocol)",
+                "b": "ARP (Address Resolution Protocol)",
+                "c": "PPP (Point to Point Protocol)",
+                "d": "DHCP (Dynamic Host Configuration Protocol)"
+            },
+            "answer": "b",
+            "explain": "ARP 用于在本地链路上根据 IPv4 地址解析对应的 MAC 地址，故选 B。题面“MAC 地址和 IP 地址转换”不够精确：ARP 通常指 IP → MAC 的地址解析，并非任意方向的双向转换。ICMP 用于差错报告等控制信息，PPP 是点到点链路协议，DHCP 用于动态配置 IP 等网络参数。"
+        },
+        {
+            "id": 2,
+            "question": "在下列选项中，属于预防死锁的方法是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "资源随意分配",
+                "b": "银行家算法",
+                "c": "剥夺资源法",
+                "d": "资源分配图简化法"
+            },
+            "answer": "c",
+            "explain": "死锁预防通过破坏死锁的必要条件来阻止死锁发生。采用允许剥夺资源的分配策略，例如进程申请新资源失败时释放其已占有的资源，可以破坏“不剥夺”条件，故选 C。银行家算法属于死锁避免；资源分配图简化法用于死锁检测。这里按预防策略理解“剥夺资源法”；若在死锁已经发生后才剥夺资源，则属于死锁解除。"
+        },
+        {
+            "id": 3,
+            "question": "一棵哈夫曼树共有 215 个结点，对其进行哈夫曼编码，共能得到（ ）个不同的码字。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "107",
+                "b": "214",
+                "c": "215",
+                "d": "108"
+            },
+            "answer": "d",
+            "explain": "按通常的二叉哈夫曼树定义，每个内部结点都有两个孩子。设叶结点数为 L，内部结点数为 I，则 I=L−1，因此总结点数为 2L−1。由 2L−1=215，得 L=108。每个叶结点对应一个不同的码字，所以共有 108 个码字，选 D。"
+        },
+        {
+            "id": 4,
+            "question": "一棵高度为 2 的 5 阶 B 树中，所含关键字的个数最少是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "8",
+                "b": "7",
+                "c": "5",
+                "d": "14"
+            },
+            "answer": "c",
+            "explain": "采用常见考试约定：高度等于含关键字结点的层数，根结点位于第 1 层，不计外部空结点。5 阶 B 树的非根结点至少含 ⌈5/2⌉−1=2 个关键字。高度为 2 时，根至少含 1 个关键字并有 2 个孩子；这两个孩子各至少含 2 个关键字。因此最少为 1+2×2=5，选 C。若高度按边数计算，则结果不同，题面应明确高度定义。"
+        },
+        {
+            "id": 5,
+            "question": "要保证数据库的逻辑数据独立性，需要修改的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "模式与内模式之间的映象",
+                "b": "模式",
+                "c": "三级模式",
+                "d": "模式与外模式之间的映象"
+            },
+            "answer": "d",
+            "explain": "逻辑数据独立性是指数据库的模式发生变化时，尽可能保持外模式以及依赖外模式的应用程序不变。因此需要调整外模式与模式之间的映象，选 D。模式与内模式之间的映象主要用于保证物理数据独立性。"
+        },
+        {
+            "id": 6,
+            "question": "$A = {a, b}$ 上有（ ）种不同的偏序关系？",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "4",
+                "b": "3",
+                "c": "5",
+                "d": "2"
+            },
+            "answer": "b",
+            "explain": "按通常的非严格偏序定义，关系必须满足自反、反对称和传递。自反性要求包含 (a,a)、(b,b)。对于 (a,b)、(b,a)，可以都不包含、只包含前者或只包含后者；不能同时包含，否则违反反对称性。这 3 种关系都满足传递性，所以共有 3 种，选 B。"
+        },
+        {
+            "id": 7,
+            "question": "下面关于 HTTP 协议的说法中，正确的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "HTTP 是一个普通用在浏览器和 Web 服务器之间进行数据交换的流式二进制协议",
+                "b": "HTTP1.0 中的 cache-control 响应头主要用于控制信息在浏览器的缓存",
+                "c": "HTTP 是基于 TCP 协议之上的应用层协议",
+                "d": "HTTP 协议是一种完全的非持久连接"
+            },
+            "answer": null,
+            "explain": "题面未限定 HTTP 版本，无法把某一选项作为适用于全部版本的严格正确答案。按传统 HTTP/1.x 教材语境，命题预期通常是 C：HTTP 是应用层协议，常运行于 TCP 之上；但 HTTP/3 使用 QUIC，因此 C 不能概括所有 HTTP 版本。[RFC 1945 §1.3](https://www.rfc-editor.org/rfc/rfc1945.html#section-1.3)、[RFC 9114 §1](https://www.rfc-editor.org/rfc/rfc9114.html#section-1)\n\nA 也依赖版本：HTTP/1.1 的消息格式使用文本字段，HTTP/2 和 HTTP/3 则采用二进制帧，不能一概称 HTTP 为流式二进制协议。[RFC 9114 §1.1–1.2](https://www.rfc-editor.org/rfc/rfc9114.html#section-1.1)\n\nB 错在版本：Cache-Control 到 HTTP/1.1 才被定义。[RFC 9111 §5.4](https://www.rfc-editor.org/rfc/rfc9111.html#section-5.4)\n\nD 的“完全的非持久连接”也不成立，HTTP/3 明确支持连接复用。[RFC 9114 §3.3](https://www.rfc-editor.org/rfc/rfc9114.html#section-3.3)\n\n建议将题干限定为传统 HTTP/1.x 的常规实现，再将答案确定为 C；当前保留 null 待确认。"
+        },
+        {
+            "id": 8,
+            "question": "某硬盘有 200 个磁道（最外侧磁道号为 0），磁道访问请求序列为 130，42，180，15，199，当前磁头位于第 58 号磁道并从外侧向内侧移动。按照 SCAN 调度方法处理完上述请求后，磁头移过的磁道数是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "325",
+                "b": "287",
+                "c": "208",
+                "d": "382"
+            },
+            "answer": "a",
+            "explain": "最外侧磁道号为 0，从外向内移动意味着磁道号递增。SCAN 先沿当前方向服务请求，到达内侧端点 199 后反向。访问路径为 58 → 130 → 180 → 199 → 42 → 15。处理完最后一个请求即停止计数，总移动量为 (199−58)+(199−15)=141+184=325，选 A。"
+        },
+        {
+            "id": 9,
+            "question": "已知有如下共用体变量的定义，则 `sizeof(test)` 的值是（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\nunion\n{\n    int i;\n    char c;\n    float a;\n} test;\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "6",
+                "b": "7",
+                "c": "4",
+                "d": "5"
+            },
+            "answer": "c",
+            "explain": "采用常见考试平台假设：int 和 float 均占 4 字节，char 占 1 字节，且该 union 的对齐要求不会使其大小超过 4 字节。共用体成员共享存储空间，其大小应容纳最大的成员，并满足对齐要求，因此 sizeof(test)=4，选 C。这里不是将成员大小相加。C 语言本身并不保证所有平台的 int、float 都为 4 字节；若不采用上述平台假设，题面信息不足以确定具体数值。"
+        },
+        {
+            "id": 10,
+            "question": "数据链路层采用选择重传（SR）传输数据，发送方已经发送 0~3 号数据帧，现已收到 1 号帧的确认，0 和 2 号帧依次超时，现需要重发的帧数是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "0",
+                "b": "1",
+                "c": "3",
+                "d": "2"
+            },
+            "answer": "d",
+            "explain": "选择重传 SR 对各帧分别确认，并只重传发生超时的未确认帧。1 号帧已经收到确认；0、2 号帧依次超时，因此需要分别重传 0、2 号帧，共 2 帧，选 D。3 号帧没有被说明已超时，不能仅因尚未确认就将其计入当前重传数量。"
+        },
+        {
+            "id": 11,
+            "question": "在关中断的情况下，不可响应的中断是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "软件中断",
+                "b": "不可屏蔽中断",
+                "c": "硬件中断",
+                "d": "可屏蔽中断"
+            },
+            "answer": "d",
+            "explain": "关中断通常指清除中断允许标志，使 CPU 暂不响应**可屏蔽中断**。不可屏蔽中断不受该标志控制；软件中断由执行相应指令产生，也不因关闭可屏蔽中断而被禁止。硬件中断还包括不可屏蔽中断，因此不能笼统选择硬件中断。故选 D。"
+        },
+        {
+            "id": 12,
+            "question": "数据库恢复的基础是利用转储的冗余数据。这些转储的冗余数据包括（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "数据字典、应用程序、审计档案、数据库后备副本",
+                "b": "数据字典、应用程序、数据库后备副本",
+                "c": "日志文件、数据库后备副本",
+                "d": "数据字典、应用程序、日志文件、审计档案"
+            },
+            "answer": "c",
+            "explain": "数据库恢复主要依靠**数据库后备副本和日志文件**。后备副本保存某个时刻的数据库状态；日志记录其后的事务更新，恢复时据此重做已提交事务或撤销未完成事务。数据字典、应用程序和审计档案不能替代这两类恢复资料。故选 C。"
+        },
+        {
+            "id": 13,
+            "question": "已知某省有 50 万考生，现需对其总成绩进行排序。下列排序方法中，（ ）所需平均时间开销最少。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "归并排序",
+                "b": "桶排序",
+                "c": "堆排序",
+                "d": "快速排序"
+            },
+            "answer": "b",
+            "explain": "按考试通常采用的前提，总成绩是取值范围较小、具有固定计分单位的数值，可为各个分数设置桶。将 50 万名考生按成绩放入对应桶，再按分数顺序输出，时间复杂度为 $O(n+K)$，其中 $K$ 为可能的成绩种数。归并、堆排序以及快速排序的平均时间复杂度均为 $O(n\\log n)$，故此场景选 B。这里采用按分数值分桶的实现；一般桶排序并非对任意数据分布都必然最快。"
+        },
+        {
+            "id": 14,
+            "question": "若有一个有向图的顶点不能排在一个拓扑序列中，则可判定该有向图（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "是一个大根的有向图",
+                "b": "含有顶点数目大于1的强连通分量",
+                "c": "含有多个入度为0的顶点",
+                "d": "是一个强连通图"
+            },
+            "answer": "b",
+            "explain": "有向图能将**所有顶点**排成拓扑序列，当且仅当它无有向环。不能完成拓扑排序说明存在有向环；按数据结构题通常默认图中无自环，该环至少含两个顶点，环上顶点彼此可达，因而存在顶点数大于 1 的强连通分量。故选 B。含环并不要求整个图强连通，多个入度为 0 的顶点也不妨碍拓扑排序。若允许单顶点自环，则 B 不一定成立，题干需补充无自环前提。"
+        },
+        {
+            "id": 15,
+            "question": "ping 命令是属于 TCP/IP 的（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "数据链路层",
+                "b": "表示层",
+                "c": "应用层",
+                "d": "网络层"
+            },
+            "answer": "d",
+            "explain": "按本题常见考试口径，将 ping 的层次理解为其使用的 **ICMP 协议所属层次**，应选 D（网络层，也称 TCP/IP 的网际层）。ping 利用 ICMP 回送请求和回送应答检测可达性；[RFC 792](https://www.rfc-editor.org/rfc/rfc792) 明确将 ICMP 视为 IP 的组成部分。严格说，ping 本身是用户调用的诊断程序，题目直接问“命令属于哪层”不够严谨；若讨论应用程序与协议的区别，不能仅凭程序运行在用户空间就改变 ICMP 的协议层次。"
+        },
+        {
+            "id": 16,
+            "question": "公式 $p \\land r \\land \\neg ( q \\to p )$ 是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "以上都不对",
+                "b": "矛盾式",
+                "c": "可满足式，但不是重言式",
+                "d": "重言式"
+            },
+            "answer": "b",
+            "explain": "利用蕴含等价式 $q\\to p\\equiv\\neg q\\lor p$，有 $\\neg(q\\to p)\\equiv q\\land\\neg p$。因此原式等价于 $p\\land r\\land q\\land\\neg p$，其中同时出现 $p$ 与 $\\neg p$，对任意赋值都为假，所以是**矛盾式**，选 B。"
+        },
+        {
+            "id": 17,
+            "question": "直接封装 RIP，OSPF，BGP 报文的协议分别是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "TCP，UDP，IP",
+                "b": "UDP，IP，TCP",
+                "c": "UDP，TCP，IP",
+                "d": "TCP，IP，UDP"
+            },
+            "answer": "b",
+            "explain": "三者的直接封装关系依次为：RIP 报文由 UDP 封装，RIPv1/RIPv2 使用 UDP 端口 520；OSPF 报文直接由 IP 封装，IP 协议号为 89；BGP 报文通过 TCP 传输，使用端口 179。因此顺序为 **UDP、IP、TCP**，选 B。依据分别见 [RFC 2453](https://www.rfc-editor.org/rfc/rfc2453)、[RFC 2328](https://www.rfc-editor.org/rfc/rfc2328) 和 [RFC 4271](https://www.rfc-editor.org/rfc/rfc4271)。"
+        },
+        {
+            "id": 18,
+            "question": "下面的代数系统 $(G,*)$ 中，（ ）不是群。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "G 为有理数集合，*为加法",
+                "b": "G 为有理数集合，*为乘法",
+                "c": "G 为偶数集合，*为加法",
+                "d": "G 为整数集合，*为加法"
+            },
+            "answer": "b",
+            "explain": "群要求运算封闭、满足结合律、具有单位元，并且每个元素都有逆元。有理数集合包含 0；在乘法下单位元为 1，但不存在有理数 $x$ 使 $0\\cdot x=1$，所以 $(\\mathbb{Q},\\times)$ 不是群，选 B。有理数、整数、偶数分别在加法下都以 0 为单位元，每个元素 $a$ 的逆元 $-a$ 仍在对应集合中，因此另外三项都是群。"
+        },
+        {
+            "id": 19,
+            "question": "下列程序的运行结果是（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\n#include <stdio.h>\nint try()\n{\n    static int x = 3;\n    x++;\n    return x;\n}\nmain()\n{\n    int i,x;\n    for (i = 0; i <= 2; i++)\n        x = try();\n    printf(\"%d\\n\", x);\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "6",
+                "b": "4",
+                "c": "3",
+                "d": "5"
+            },
+            "answer": "a",
+            "explain": "函数中的 `x` 是静态局部变量，仅初始化一次为 3，并在不同调用之间保留数值。循环取 `i=0,1,2`，共调用函数三次，返回值依次为 4、5、6；`main` 中的局部变量 `x` 最终保存 6，所以输出 `6`，选 A。此处按题目采用的旧式 C 写法或允许省略返回类型的编译环境分析；现代标准 C 应将 `main()` 改为 `int main(void)`。"
+        },
+        {
+            "id": 20,
+            "question": "在下面的 I/O 控制方式中，需要 CPU 干预最少的方式是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "中断驱动 I/O 控制方式",
+                "b": "直接存储器访问（DMA）控制方式",
+                "c": "程序 I/O 方式",
+                "d": "I/O 通道控制方式"
+            },
+            "answer": "d",
+            "explain": "**I/O 通道控制方式**由具有专门控制能力的通道执行通道程序，可组织多个数据块以及多台设备的 I/O 操作，CPU 主要负责启动和处理完成事件，干预最少，选 D。程序 I/O 需要 CPU 持续查询并传送数据；中断方式仍需 CPU 执行传送处理；DMA 虽可直接搬运数据块，但通常仍需 CPU 为各次传送设置参数，独立控制能力弱于通道方式。"
+        },
+        {
+            "id": 21,
+            "question": "以下程序的输出结果是（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\n#define SQR(X) X*X\nmain()\n{\n    int a = 16, k = 2, m = 1;\n    a /= SQR(k + m) / SQR(k + m);\n    printf(\"%d\\n\", a);\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "16",
+                "b": "2",
+                "c": "9",
+                "d": "1"
+            },
+            "answer": "b",
+            "explain": "宏只是文本替换，`SQR(X)` 没有给参数和整个表达式加括号。因此右侧展开为 `k + m*k + m / k + m*k + m`。按乘除优先、整数除法计算，结果为 `2 + 2 + 0 + 2 + 1 = 7`。复合赋值执行 `a = a / 7`，即 `16 / 7 = 2`，故选 B。这里按题目传统 C 程序片段的惯例考察宏展开与运算优先级。"
+        },
+        {
+            "id": 22,
+            "question": "解决碎片问题，以及使程序可浮动的最好的办法是采用（ ）技术。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "动态重定位",
+                "b": "内存静态分配",
+                "c": "静态重定位",
+                "d": "内存动态分配"
+            },
+            "answer": "a",
+            "explain": "动态重定位在程序执行期间把逻辑地址转换为物理地址。进程移动到新的内存位置后，只需更新地址转换所用的基址等信息，程序仍可正常执行，因此支持程序浮动和内存紧凑。紧凑可将分散的空闲区合并，以缓解外部碎片问题，故选 A。动态重定位提供的是移动程序的支持，本身并不自动消除所有种类的碎片。"
+        },
+        {
+            "id": 23,
+            "question": "下列编码中，（ ）不是前缀编码。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$\\{0, 10, 110, 111\\}$",
+                "b": "$\\{0, 1, 00, 11\\}$",
+                "c": "$\\{00, 01, 10, 11\\}$",
+                "d": "$\\{10, 110, 1110, 1111\\}$"
+            },
+            "answer": "b",
+            "explain": "前缀编码要求任何一个码字都不是另一个码字的前缀。B 中 `0` 是 `00` 的前缀，`1` 是 `11` 的前缀，因此不满足要求。其余各组都不存在一个码字作为另一个码字前缀的情况，故选 B。"
+        },
+        {
+            "id": 24,
+            "question": "设变量 `x` 为 `float` 型且已赋值，则以下语句中能将 `x` 中的数值保留到小数点后两位，并将第三位四舍五入的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`x = (x * 100 + 0.5) / 100.0`;",
+                "b": "`x = x * 100 + 0.5 / 100.0`;",
+                "c": "`x = (x / 100 + 0.5) * 100.0`;",
+                "d": "`x = (int)(x * 100 + 0.5) / 100.0`;"
+            },
+            "answer": "d",
+            "explain": "按此类教材题默认处理非负数、且转换结果未超出 `int` 范围的惯例，选 D：先将 `x` 放大 100 倍，再加 `0.5`，强制转换为 `int` 舍去小数部分，最后除以 `100.0` 恢复量级。例如 `1.236` 经此处理得到约 `1.24`。A 没有取整，等价于给原数加 `0.005`；B、C 也不是保留两位小数的算法。**题干限制不完整**：该公式不适用于一般负数，例如 `-1.236` 会得到约 `-1.23`；此外浮点数也不能保证精确表示所有十进制两位小数。"
+        },
+        {
+            "id": 25,
+            "question": "如果一个程序为多个进程所共享，且该程序的代码在执行过程中不能被修改，则该程序应该是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "可改变码",
+                "b": "可运行码",
+                "c": "可重入码",
+                "d": "可连接码"
+            },
+            "answer": "c",
+            "explain": "可重入码允许多个进程共享执行同一份程序代码，代码在执行过程中保持不变，各进程需要修改的数据和执行状态应分别保存。因此题干描述的是可重入码，选 C。"
+        },
+        {
+            "id": 26,
+            "question": "系统为某进程分配了 4 个页框，该进程已访问的页号序列为 1，0，2，7，3，4，2，8，3，4，8，4，5。若进程要访问的下一页的页号为 7，依据 LRU 算法，应淘汰页的页号是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "2",
+                "b": "4",
+                "c": "8",
+                "d": "3"
+            },
+            "answer": "d",
+            "explain": "LRU 淘汰当前驻留页中最久未被访问的页。按“最久未使用 → 最近使用”排列，访问到第 8 个页号 `8` 后，4 个页框的顺序为 `[3,4,2,8]`；接着访问 `3,4,8,4` 后变为 `[2,3,8,4]`；再访问 `5` 时淘汰 `2`，变为 `[3,8,4,5]`。下一次访问 `7` 会缺页，此时应淘汰最久未使用的页 `3`，故选 D。"
+        },
+        {
+            "id": 27,
+            "question": "将一个 C 类网络划分为 3 个子网，每个子网最少要容纳 55 台主机，则使用的子网掩码是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "255.255.255.252",
+                "b": "255.255.255.224",
+                "c": "255.255.255.192",
+                "d": "255.255.255.248"
+            },
+            "answer": "c",
+            "explain": "按允许使用全 0 和全 1 子网的通常子网划分规则，每个子网要至少容纳 55 台主机，主机位数需满足 $2^h-2\\ge55$，最少为 6 位，可容纳 62 台主机。C 类网络原有 8 位主机位，借出 2 位作为子网位，可划分 4 个等长子网，其中使用 3 个。掩码为 `/26`，即 `255.255.255.192`，故选 C。这里的“3 个子网”按至少提供 3 个可用子网理解。"
+        },
+        {
+            "id": 28,
+            "question": "假设信道长度为 1200km，其往返时间为 20ms，分组长度为 1200bit，发送速率为 1Mb/s。若忽略处理时间和发送确认分组时间，则该信道的利用率为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "0.016",
+                "b": "0.14",
+                "c": "0.06",
+                "d": "0.0566"
+            },
+            "answer": "d",
+            "explain": "按本题选项对应的**停止等待协议**模型，并把给出的 20 ms 视为往返传播时延，发送一个分组所需时间为 $T_t=1200/(10^6)=1.2\\text{ ms}$。忽略处理时间和确认分组发送时间，一个发送周期为 $1.2+20=21.2\\text{ ms}$，信道利用率为 $U=1.2/21.2\\approx0.0566$，故选 D。信道长度不必再次参与计算，因为已给出往返时间。严格说题干应明确停止等待协议；若允许流水线发送，还需要给出窗口大小等条件。"
+        },
+        {
+            "id": 29,
+            "question": "在下列关于 SPOOLing 的叙述中，描述不正确的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "SPOOLing 系统加快了作业执行的速度",
+                "b": "SPOOLing 系统主要目的是提升 I/O 设备效率",
+                "c": "SPOOLing 系统利用了处理器与通道并行工作的能力",
+                "d": "SPOOLing 系统使共享设备变成独占设备"
+            },
+            "answer": "d",
+            "explain": "SPOOLing 利用磁盘上的输入井、输出井缓存作业的输入输出，通过后台输入、输出过程实现处理器与 I/O 操作的重叠，提高系统吞吐量和设备利用率。它把独占设备的使用虚拟化为多个进程可共享的服务，例如多个进程可以提交打印任务；D 将这一方向说反了，故选 D。A 按教材中减少作业等待、改善执行效率的通常含义理解，并不表示物理设备本身的工作速度变快。"
+        },
+        {
+            "id": 30,
+            "question": "以下排序算法中，不稳定的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "直接插入排序",
+                "b": "归并排序",
+                "c": "冒泡排序",
+                "d": "希尔排序"
+            },
+            "answer": "d",
+            "explain": "希尔排序通过间隔较大的分组插入排序移动元素，可能改变相同关键字元素的原有相对顺序，因此不稳定。例如序列 `[2ₐ,3,1,2ᵦ]` 采用增量 2 排序后成为 `[1,2ᵦ,2ₐ,3]`，随后增量 1 排序也不会恢复两个 `2` 的原顺序。直接插入、归并和冒泡排序在标准的稳定实现下均为稳定排序，故选 D。"
+        },
+        {
+            "id": 31,
+            "question": "下列排序算法中，（ ）是不稳定的。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "基数排序",
+                "b": "起泡排序",
+                "c": "堆排序",
+                "d": "直接插入排序"
+            },
+            "answer": "c",
+            "explain": "堆排序中堆顶与末尾元素的远距离交换可能改变相等关键字的相对次序，因此不稳定。通常实现的基数排序、冒泡排序和直接插入排序均可保持相等关键字的原始次序，选 C。"
+        },
+        {
+            "id": 32,
+            "question": "在关系模式 $R$ 中，若其函数依赖集中所有候选关键字都是决定因素，则 $R$ 最高范式是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "1NF",
+                "b": "BCNF",
+                "c": "2NF",
+                "d": "3NF"
+            },
+            "answer": null,
+            "explain": "题面的条件方向有误，无法确定最高范式。候选关键字本来就能函数决定关系的全部属性，因此“所有候选关键字都是决定因素”并未施加额外约束。BCNF 要求每个非平凡函数依赖 X→Y 的决定因素 X 都是超键，而不是反过来要求候选键是决定因素。若原意是“所有决定因素都是候选关键字”，则命题预期为 B；按当前题面保留 null。"
+        },
+        {
+            "id": 33,
+            "question": "已知两个长度分别为 $m$ 和 $n$ 的升序链表，若将它们合并为一个长度为 $m + n$ 的降序链表，则最坏情况下的时间复杂度是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$O(\\text{min}(m, n))$",
+                "b": "$O(mn)$",
+                "c": "$O(m + n)$",
+                "d": "$O(\\text{max}(m, n))$"
+            },
+            "answer": null,
+            "explain": "每次比较两个升序链表当前最小元素，将较小结点取下后头插入结果链表，最后处理剩余结点，即可得到降序链表。每个结点处理一次，通常写作 Θ(m+n)，命题预期为 C。但对非负长度 m、n，有 max(m,n)≤m+n≤2max(m,n)，所以 O(m+n) 与 O(max(m,n)) 是相同的渐近复杂度，D 也成立。选项不能构成严格唯一的单选题，故保留 null。"
+        },
+        {
+            "id": 34,
+            "question": "当局部 E-R 图合并成全局 E-R 图时可能出现冲突，不属于合并冲突的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "语法冲突",
+                "b": "命名冲突",
+                "c": "结构冲突",
+                "d": "属性冲突"
+            },
+            "answer": "a",
+            "explain": "局部 E-R 图合并时的常见冲突包括属性冲突、命名冲突和结构冲突。语法冲突不属于这一分类，选 A。"
+        },
+        {
+            "id": 35,
+            "question": "假设用下面语句申请一块动态内存，并用指针变量 `p` 指向它，用这块内存保存 `m * n` 个整型元素，即作为一个二维动态数组使用。通过 `p` 访问第 `i` 行第 `j` 列元素的正确方式是（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\np = (int*) malloc(m * n * sizeof(int));\n/* 或者 */\np = (int*) calloc(m * n, sizeof(int));\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`*(*(p + i) + j)`",
+                "b": "`p[i][j]`",
+                "c": "`p[j * n + i]`",
+                "d": "`p[i * n + j]`"
+            },
+            "answer": "d",
+            "explain": "按 C 数组的通常约定，下标 i、j 从 0 开始，元素按行存储，每行 n 个整型元素。第 i 行之前有 i×n 个元素，再偏移 j 个元素，因此访问式为 p[i*n+j]，选 D。p 的类型是 int*，不能直接使用 p[i][j]。"
+        },
+        {
+            "id": 36,
+            "question": "下面描述中，错误的一条描述是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "文件的物理结构不仅与外存的分配方式相关，还与存储介质的特性相关，通常在磁带上只适合使用顺序结构。",
+                "b": "一个文件在同一个系统中、不同的存储介质上的拷贝，应采用同一种物理结构。",
+                "c": "虽然磁盘是随机访问的设备，但其中的文件也可以使用顺序结构。",
+                "d": "采用顺序结构的文件既适合进行顺序访问，也适合进行随机访问。"
+            },
+            "answer": "b",
+            "explain": "文件的物理结构由存储介质及其空间分配方式等决定，同一文件复制到不同介质后可以采用不同物理结构，因此 B 错误。这里把题中的顺序结构按物理连续存放理解：磁盘上的连续文件既可顺序访问，也可根据起始位置和偏移量随机访问；磁带的访问仍受其介质特性限制。"
+        },
+        {
+            "id": 37,
+            "question": "化简如下的资源分配图后，可以看出，处于死锁状态的进程包括（ ）。",
+            "extra": "image",
+            "extra_body": "image/2020-1-36.svg",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "P1，P4",
+                "b": "P1，P3，P4",
+                "c": "P0，P1，P3，P4",
+                "d": "以上都不对"
+            },
+            "answer": "b",
+            "explain": "根据 SVG 的资源实例点和箭头：P2 没有待满足的请求，可先完成并释放 r1、r2；随后 P0 对 r1、r2 的请求可满足，完成后释放其资源。剩余 P1 持有 r3 并请求 r4，P4 持有 r4 并请求 r3，二者循环等待；P3 也请求由 P1 占有的 r3，不能继续化简。按资源分配图化简后剩余进程的判定，处于死锁状态的进程为 P1、P3、P4，选 B。"
+        },
+        {
+            "id": 38,
+            "question": "已知关系 $R = \\{A, B, C, D, E, F\\}$，$F = \\{A \\rightarrow C, BC \\rightarrow DE, D \\rightarrow E, CF \\rightarrow B\\}$。则 $(AB)F^{+}$ 的闭包是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$AB$",
+                "b": "$ABCDE$",
+                "c": "$ABC$",
+                "d": "$ABCDEF$"
+            },
+            "answer": "b",
+            "explain": "从 {A,B} 开始：由 A→C 加入 C，得到 {A,B,C}；由 BC→DE 加入 D、E，得到 {A,B,C,D,E}。D→E 不增加新属性，CF→B 因缺少属性 F 不能带来 F，且没有任何依赖能推出 F。因此闭包为 ABCDE，选 B。"
+        },
+        {
+            "id": 39,
+            "question": "若给定如下定义：",
+            "extra": "markdown",
+            "extra_body": "```c\nint a[3][4], *p;\n```\n\n则以下不能对指针`p`进行初始化的是（ ）。",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`p = a;`",
+                "b": "`p = a[0];`",
+                "c": "`p = *a;`",
+                "d": "`p = &a[0][0];`"
+            },
+            "answer": "a",
+            "explain": "二维数组 a 在该表达式中转换为指向首行的指针，类型为 int (*)[4]，与 p 的 int* 类型不兼容，所以 A 不能作为类型正确的赋值。a[0] 和 *a 都表示首行数组，在赋值中转换为 int*；&a[0][0] 本身也是 int*，故其余三个选项正确。"
+        },
+        {
+            "id": 40,
+            "question": "数据库中，若事务 $T$ 对数据 $R$ 已加 $X$ 锁，则其他事务对 $R$（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "不能加任何锁",
+                "b": "可以加 $S$ 锁不能加 $X$ 锁",
+                "c": "不能加 $S$ 锁可以加 $X$ 锁",
+                "d": "可以加 $S$ 锁也可以加 $X$ 锁"
+            },
+            "answer": "a",
+            "explain": "按数据库教材的 S/X 锁模型，X 锁是排他锁，与其他事务的 S 锁、X 锁均不兼容。因此事务 T 持有 R 的 X 锁期间，其他事务不能取得 R 上的任何一种 S/X 锁，选 A。"
+        },
+        {
+            "id": 41,
+            "question": "根据关系数据库规范化理论，关系数据库中的关系要满足第一范式。下面“部门”关系中，因（ ）属性而使它不满足第一范式。",
+            "extra": "markdown",
+            "extra_body": "`部门（部门号，部门名，部门成员，部门总经理）`",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "部门总经理",
+                "b": "部门号",
+                "c": "部门名",
+                "d": "部门成员"
+            },
+            "answer": "d",
+            "explain": "第一范式要求关系的每个属性值都是不可再分的原子值。按题意，一个部门通常包含多名成员，把所有成员作为一个属性值存储会形成多值属性，因此“部门成员”使该关系不满足第一范式，选 D。可将成员关联另建关系，每条记录表示一个部门与一个成员的对应关系。"
+        },
+        {
+            "id": 42,
+            "question": "（ ）是 DBMS 的基本单位，它是用户定义的一组逻辑一致的程序序列。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "程序",
+                "b": "事务",
+                "c": "命令",
+                "d": "文件"
+            },
+            "answer": "b",
+            "explain": "**事务**是用户定义的一组数据库操作，是数据库的一个逻辑工作单位。事务中的操作应作为整体执行，全部成功则提交，失败则回滚；它也是数据库并发控制和恢复的基本单位。因此选 B。"
+        },
+        {
+            "id": 43,
+            "question": "已知一棵有 2011 个结点的树，其叶结点个数是 116，该树对应的二叉树中无右孩子的结点个数是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "1895",
+                "b": "115",
+                "c": "1896",
+                "d": "116"
+            },
+            "answer": "c",
+            "explain": "采用“左孩子—右兄弟”表示法时，二叉树的右孩子对应原树中的下一个兄弟。原树每个非叶结点的孩子中，恰有一个最后的孩子没有右兄弟；此外，根结点也没有右兄弟。非叶结点数为 $2011-116=1895$，因此无右孩子的结点数为 $1895+1=1896$，选 C。"
+        },
+        {
+            "id": 44,
+            "question": "对一组数据（2，12，16，88，5，10）进行排序，若前3趟排序结果如下：第一趟排序结果：2，12，16，5，10，88；第二趟排序结果：2，12，5，10，16，88；第三趟排序结果：2，5，10，12，16，88。则采用的排序方法可能是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "冒泡排序",
+                "b": "希尔排序",
+                "c": "基数排序",
+                "d": "归并排序"
+            },
+            "answer": "a",
+            "explain": "按从左向右扫描、升序排列的冒泡排序，第一趟把最大值 88 交换到末尾，得到 `2,12,16,5,10,88`；第二趟在剩余部分把 16 移到倒数第二位，得到 `2,12,5,10,16,88`；第三趟把 12 移到其最终位置，得到 `2,5,10,12,16,88`。三趟结果与题目完全一致，选 A。"
+        },
+        {
+            "id": 45,
+            "question": "下列说法中，错误的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$\\exists z\\,\\forall x\\,(F(z, y) \\land (G(x) \\to H(x,y)))$ 是 $\\exists x\\,F(x, y) \\land \\forall x\\,(G(x) \\to H(x,y))$ 的前束范式。",
+                "b": "以上都不对。",
+                "c": "$\\exists x\\,\\exists y\\,(F(x) \\land G(y))$ 是 $\\exists x\\,F(x) \\land \\exists y\\,G(y)$ 的前束范式。",
+                "d": "$\\forall x\\,(F(x) \\land G(x))$ 是 $\\forall x\\,F(x) \\land \\forall y\\,G(y)$ 的前束范式。"
+            },
+            "answer": "b",
+            "explain": "按经典一阶逻辑的非空论域约定，A、C、D 三项给出的前束范式均正确：A 先将第一部分的约束变量改名为 $z$，避免变量捕获，再将量词前移；C 中两个存在量词分别只约束各自的谓词，可直接前移；D 中先将 $G(y)$ 的约束变量改名为 $x$，再用 $\\forall xF(x)\\land\\forall xG(x)\\equiv\\forall x(F(x)\\land G(x))$ 合并。因此，“以上都不对”这一断言错误，选 B。"
+        },
+        {
+            "id": 46,
+            "question": "一棵二叉树的前序遍历序列为 1234567，它的中序遍历序列可能是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "1234567",
+                "b": "3124567",
+                "c": "4135627",
+                "d": "1463572"
+            },
+            "answer": "a",
+            "explain": "前序首元素 1 是根。A 可由所有结点依次只有右孩子的链状二叉树实现，此时前序和中序均为 `1234567`。B 的根 1 左侧只有结点 3，C 的根 1 左侧只有结点 4，而前序中根后的首个结点是 2，均矛盾。D 中根 1 的右子树根为 2，2 的左子树根为 3；中序要求 3 的左子树含 4、6，但对应前序片段为 4、5，矛盾。因此只有 A 可能。"
+        },
+        {
+            "id": 47,
+            "question": "若一棵二叉树的前序遍历序列和后序遍历序列分别为 1，2，3，4 和 4，3，2，1，则该二叉树的中序遍历序列不会是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "1，2，3，4",
+                "b": "3，2，4，1",
+                "c": "2，3，4，1",
+                "d": "4，3，2，1"
+            },
+            "answer": "b",
+            "explain": "前序为 `1,2,3,4` 而后序完全逆序，说明每层都只有一个孩子，形成祖先次序为 $1\\to2\\to3\\to4$ 的链，各条边可为左孩子或右孩子。B 的中序 `3,2,4,1` 要求结点 2 的左侧有 3、右侧有 4，即结点 2 同时具有左右子树，与链状结构矛盾。A 可由全右链得到，D 可由全左链得到；C 可令 2 为 1 的左孩子，3、4 分别为 2、3 的右孩子得到。故选 B。"
+        },
+        {
+            "id": 48,
+            "question": "已知小根堆为 8，15，10，21，34，16，12，删除关键字 8 之后需重建堆，在此过程中，关键字之间的比较次数是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "4",
+                "b": "1",
+                "c": "3",
+                "d": "2"
+            },
+            "answer": "c",
+            "explain": "按删除堆顶后用末尾元素补位、再向下筛选的标准算法，将 12 放到根，剩余堆为 `12,15,10,21,34,16`。先比较两个孩子 15 与 10，选出 10（第 1 次）；比较 12 与 10 并交换（第 2 次）；12 到达原来 10 的位置后仅有孩子 16，比较 12 与 16 后停止（第 3 次）。共 3 次关键字比较，选 C。"
+        },
+        {
+            "id": 49,
+            "question": "设 $G$ 有 6 个元素的循环群，$a$ 是生成元，则 $G$ 的子集（ ）是子群。（说明：$e$ 是单位元。）",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$\\{e, a^3\\}$",
+                "b": "$\\{e, a, a^3\\}$",
+                "c": "$\\{a\\}$",
+                "d": "$\\{e, a\\}$"
+            },
+            "answer": "a",
+            "explain": "因为 $a$ 的阶为 6，所以 $(a^3)^2=a^6=e$，$a^3$ 的逆元就是自身。因此 $\\{e,a^3\\}=\\langle a^3\\rangle$ 含单位元、对乘法封闭且包含各元素的逆元，是二阶子群，选 A。B、D 都包含 $a$ 却不包含 $a^2$，不封闭；C 不包含单位元。"
+        },
+        {
+            "id": 50,
+            "question": "设 $\\langle A, \\leq \\rangle$ 是一偏序集，$B$ 是 $A$ 的子集。则下面说法错误的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "若 $b$ 是 $B$ 的最大元 ，则 $b$ 是 $B$ 的极大元、上界、最小上界",
+                "b": "若 $B$ 存在最小上界，则 $B$ 的最小上界是唯一的",
+                "c": "若 $a$ 是 $B$ 的最小上界，则 $a$ 是 $B$ 的最大元",
+                "d": "若 $B$ 存在最大元，则 $B$ 的最大元是惟一的"
+            },
+            "answer": "c",
+            "explain": "最小上界必须属于偏序集 $A$，但**不一定属于子集 $B$**，所以不一定是 $B$ 的最大元，C 错误。例如取 $A=\\mathbb R$、$B=(0,1)$，则 $\\sup B=1$，但 $1\\notin B$，$B$ 没有最大元。若最大元存在，它必然同时是极大元、上界和最小上界；最大元与最小上界的唯一性均可由偏序的反对称性推出。因此其余三项正确。"
+        },
+        {
+            "id": 51,
+            "question": "关系规范化中的插入操作异常是指（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "应该插入的数据未被插入",
+                "b": "应该删除的数据未被删除",
+                "c": "不该删除的数据被删除",
+                "d": "不该插入的数据被插入"
+            },
+            "answer": "a",
+            "explain": "插入异常是指由于关系模式设计不合理，某些本来应该保存的数据无法独立插入。例如把学生与选课信息混存在一张表中，可能导致尚未选课的学生无法登记。因此选 A。"
+        },
+        {
+            "id": 52,
+            "question": "定义基本表时，若要求某一列的值是唯一的，则应在定义时使用（ ）保留字，但如果该列是主键，则可省写。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`NULL`",
+                "b": "`UNIQUE`",
+                "c": "`DISTINCT`",
+                "d": "`NOT NULL`"
+            },
+            "answer": "b",
+            "explain": "`UNIQUE` 用于声明列值的唯一性约束。主键 `PRIMARY KEY` 已包含唯一性和非空要求，因此主键列不必再单独声明 `UNIQUE`。`DISTINCT` 用于查询结果去重，`NOT NULL` 只限制不能取空值，故选 B。"
+        },
+        {
+            "id": 53,
+            "question": "SMTP 协议是（ ）上的协议。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "网络层",
+                "b": "应用层",
+                "c": "传输层",
+                "d": "物理层"
+            },
+            "answer": "b",
+            "explain": "SMTP 是简单邮件传输协议，用于电子邮件的提交和传送，属于应用层协议；它通常使用 TCP 提供的传输服务。故选 B。"
+        },
+        {
+            "id": 54,
+            "question": "文件传输协议 FTP 是（ ）上的协议。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "网络层",
+                "b": "物理层",
+                "c": "运输层",
+                "d": "应用层"
+            },
+            "answer": "d",
+            "explain": "FTP 是文件传输协议，为应用程序提供文件传输服务，属于应用层协议；底层通常使用 TCP。故选 D。"
+        },
+        {
+            "id": 55,
+            "question": "设有关系 $R(A, B, C)$ 和 $S(C, D)$。与 SQL 语句 `select A, B, D from R, S where R.C = S.C` 等价的关系代数表达式是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$\\pi_{A, B, D}(\\sigma_{R.C = S.C}(R \\times S))$",
+                "b": "$\\sigma_{R.C = S.C}(\\pi_{A, B, D}(R \\times S))$",
+                "c": "$\\sigma_{R.C = S.C}((\\pi_{A, B}(R)) \\times (\\pi_{D}(S)))$",
+                "d": "$\\sigma_{R.C = S.C}(\\pi_{D}((\\pi_{A,B}(R)) \\times S))$"
+            },
+            "answer": "a",
+            "explain": "按教材中 SQL 与关系代数的对应规则：`from R, S` 对应笛卡尔积，`where R.C = S.C` 对应选择，最后 `select A, B, D` 对应投影。因此必须先连接筛选，再保留 A、B、D，选 A。其他选项在选择操作之前投影掉了条件所需的 C 属性，因而无法完成该选择。这里忽略 SQL 默认保留重复行与经典关系代数采用集合语义的差别。"
+        },
+        {
+            "id": 56,
+            "question": "不考虑 Cache，段页式管理每取一次数据，要至少访问（ ）次内存。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "2",
+                "b": "4",
+                "c": "1",
+                "d": "3"
+            },
+            "answer": "d",
+            "explain": "按题目通常默认的无快表、段表和单级页表均驻留内存的模型，需要访问内存 3 次：第一次查段表取得该段页表的位置，第二次查页表得到物理页框号，第三次读取目标数据。因此选 D。"
+        },
+        {
+            "id": 57,
+            "question": "已知数据链路层采用后退 $N$ 帧（GBN）协议，且发送方已经发送了编号为 0~7 的帧。当计时器超时时，若发送方只收到 0、1、3 号帧的确认，则发送方需要重发的帧数是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "2",
+                "b": "3",
+                "c": "4",
+                "d": "5"
+            },
+            "answer": "c",
+            "explain": "GBN 使用累积确认。收到对 3 号帧的确认，就表示 0～3 号帧均已正确接收，即使 2 号帧的确认没有单独到达也不必重传。超时后需要从最早未确认的 4 号帧开始，重传 4、5、6、7，共 4 帧，故选 C。"
+        },
+        {
+            "id": 58,
+            "question": "若甲方向乙方发起一个 TCP 连接，最大段长 MSS = 1KB，RTT = 5ms，乙方开辟的接收缓存为 64KB，则甲方从连接建立成功至发送窗口达到 32KB，需要经过的时间至少是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "35ms",
+                "b": "160ms",
+                "c": "25ms",
+                "d": "165ms"
+            },
+            "answer": "c",
+            "explain": "按传统教材的慢开始模型，初始拥塞窗口为 1 MSS = 1 KB，且慢开始门限不限制窗口增长、没有丢包，拥塞窗口每经过一个 RTT 约翻倍：1 → 2 → 4 → 8 → 16 → 32 KB，共需 5 个 RTT。接收窗口为 64 KB，不构成限制，所需最短时间为 5 × 5 = 25 ms，故选 C。计时起点是连接建立成功，不再计入握手时间；实际 TCP 的初始窗口可能与该教材模型不同。"
+        },
+        {
+            "id": 59,
+            "question": "下面有关 NAT 的描述，说法错误的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "虚拟机里配置 NAT 模式，需要手工为虚拟系统配置 IP 地址、子网掩码，而且还要和宿主机器处于同一网段",
+                "b": "NAT 的实现方式有三种，即静态转换 Static Nat、动态转换 Dynamic Nat 和端口多路复用 OverLoad",
+                "c": "NAT 可以有效的解决了 IP 地址不足的问题",
+                "d": "NAT 是一种把内部私有网络地址（IP 地址）翻译成合法网络IP地址的技术"
+            },
+            "answer": "a",
+            "explain": "虚拟机使用 NAT 模式时，通常可通过虚拟网络提供的 DHCP 服务自动获得地址，不要求手工配置；虚拟机所处的私有网段也不要求与宿主机的物理网卡同网段。因此 A 的说法错误。静态 NAT、动态 NAT 和通过端口复用的 NAPT/PAT 是教材常见分类，NAT 配合端口复用可使多个私网主机共享公网地址，从而缓解 IPv4 地址短缺。"
+        },
+        {
+            "id": 60,
+            "question": "利用栈求表达式的值时，设立运算符栈 `OPEN`。假设 `OPEN` 只有两个存储单元，则在下列表达式中，不会发生溢出的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`(A-B)*C-D`",
+                "b": "`(A-B)*(C-D)`",
+                "c": "`(A-B*C)-D`",
+                "d": "`A-B*(C-D)`"
+            },
+            "answer": "a",
+            "explain": "按运算符栈的两个单元用于实际运算符和左括号、结束标记不额外占用单元的通常简化模型，A 的最大栈深度为 2：处理括号内减法时栈为 `[(, -]`，遇到右括号即完成减法并移除括号；随后遇到末尾减号前先计算乘法，不会再增加栈深度。B 在第二个括号内会出现 `[*, (, -]`；C 会出现 `[(, -, *]`；D 会出现 `[-, *, (]`，均超过两个单元，故选 A。若实现把栈底结束标记也计入容量，题目还需要另行说明。"
+        },
+        {
+            "id": 61,
+            "question": "以下不能正确赋值的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`char s4[4] = {'t', 'e', 's', 't'};`",
+                "b": "`char s3[20] = \"test\";`",
+                "c": "`char s1[10]; s1 = \"test\";`",
+                "d": "`char s2[] = {'t', 'e', 's', 't'};`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 62,
+            "question": "用来实现进程同步与互斥的 PV 操作实际上是由（ ）过程组成的。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "一个不可被中断的",
+                "b": "两个可被中断的",
+                "c": "两个不可被中断的",
+                "d": "一个可被中断的"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 63,
+            "question": "$\\forall x\\,\\exists y\\,P(x, y)$ 的否定是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$\\exists x\\,\\exists y\\,\\neg P(x, y)$",
+                "b": "$\\exists x\\,\\forall y\\,\\neg P(x, y)$",
+                "c": "$\\forall x\\,\\forall y\\,\\neg P(x, y)$",
+                "d": "$\\forall x\\,\\exists y\\,\\neg P(x, y)$"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 64,
+            "question": "已知关系模式 $R(A, B)$ 属于 3NF，下列说法中，正确的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "一定属于 BCNF",
+                "b": "仍存在一定的插入和删除异常",
+                "c": "它一定消除了插入和删除异常",
+                "d": "A 和 C 都是"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 65,
+            "question": "执行（ ）操作时，通常需要使用队列作为辅助存储空间。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "查找散列（哈希）表",
+                "b": "前序（根）遍历二叉树",
+                "c": "深度优先搜索",
+                "d": "广度优先搜索"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 66,
+            "question": "在请求分页存储管理方案中，若某用户空间为 16 个页面，页长 1KB，现有页表如下，则逻辑地址 `0A2CH` 所对应的物理地址为（ ）。",
+            "extra": "markdown",
+            "extra_body": "| 页号 | 页框号 |\n| :-: | :-: |\n| 0 | 1 |\n| 1 | 5 |\n| 2 | 3 |\n| 3 | 4 |",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`302C(H)`",
+                "b": "`032C(H)`",
+                "c": "`1E2C(H)`",
+                "d": "`0E2C(H)`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 67,
+            "question": "若 `w=1, x=2, y=3, z=4`，则条件表达式 `w < x ? w : y < z ? y : z` 的结果为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "4",
+                "b": "3",
+                "c": "2",
+                "d": "1"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 68,
+            "question": "一组待排序序列为（46，79，56，38，40，84），则利用堆排序方法建立的初始堆为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "84，79，56，46，40，38",
+                "b": "84，79，56，38，40，46",
+                "c": "84，56，79，40，46，38",
+                "d": "79，46，56，38，40，84"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 69,
+            "question": "所谓静态列级约束，就是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "对一个列的关系联系的说明",
+                "b": "对一个行的取值域的说明",
+                "c": "对一个列的取值域的说明",
+                "d": "对一个列的横向联系的说明"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 70,
+            "question": "下列选项中，对正确接收到的数据帧进行确认的 MAC 协议是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "CDMA",
+                "b": "CSMA",
+                "c": "CSMA/CD",
+                "d": "CSMA/CA"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 71,
+            "question": "设主存容量为 1MB，辅存容量为 400MB，计算机系统的地址寄存器有 24 位，那么虚存的最大容量是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$1$ MB",
+                "b": "$401$ MB",
+                "c": "$1$ MB + $2^{24}$ B",
+                "d": "$2^{24}$ B"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 72,
+            "question": "一个栈的输入序列为 1、2、3、4、5，下列序列中可能为栈的输出序列的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "2、3、4、1、5",
+                "b": "1、4、2、5、3",
+                "c": "3、1、2、4、5",
+                "d": "5、4、1、3、2"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 73,
+            "question": "以下程序执行后的输出结果是（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\nvoid fun(int *a, int i, int j)\n{\n    int t;\n    if(i < j)\n    {\n        t = a[i]; a[i] = a[j]; a[j] = t;\n        fun(a, ++i, --j);\n    }\n}\n\nmain()\n{\n    int a[] = {1, 2, 3, 4, 5, 6}, i;\n    fun(a, 0, 5);\n    for(i = 0; i < 6; i++)\n        printf(\"%d\", a[i]);\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "6 3 2 1 5 4",
+                "b": "1 2 3 4 5 6",
+                "c": "6 5 4 3 2 1",
+                "d": "4 6 5 1 2 3"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 74,
+            "question": "有以下程序：",
+            "extra": "markdown",
+            "extra_body": "```c\nvoid f(int a[], int i, int j)\n{\n    int t;\n    if(i < j)\n    {\n        t = a[i]; a[i] = a[j]; a[j] = t;\n        f(a, i + 1, j - 1);\n    }\n}\n\nmain()\n{\n    int i, aa[5] = {1, 2, 3, 4, 5};\n    f(aa, 0, 4);\n    for(i = 0; i < 5; i++)\n        printf(\"%d,\", aa[i]);\n    printf(\"\\n\");\n}\n```\n\n执行后输出结果是（ ）。",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`5,4,3,2,1,`",
+                "b": "`5,2,3,4,1,`",
+                "c": "`1,2,3,4,5,`",
+                "d": "`1,4,3,2,5,`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 75,
+            "question": "下面关于改善数据库性能的一些措施，说法不正确的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "不少应用项目只需要数据在某一时间的值，在这种场合应尽可能使用快照。",
+                "b": "数据库的性能与数据库的物理设计关系密切，数据库的逻辑设计对它没有影响。",
+                "c": "关系的大小对查询速度影响很大，为提高查询速度，可以把一个大关系分解成很多小关系。",
+                "d": "连接是开销比较大的运算，应该减少连接运算。"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 76,
+            "question": "银行家算法的数据结构包括可利用资源向量 `Available`、最大需求矩阵 `Max`、分配矩阵 `Allocation` 和需求矩阵 `Need`。下列选项中表述正确的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`Need[i, j] = Max[i, j] + Allocation[i, j]`",
+                "b": "`Max[i, j] = Allocation[i, j] * Need[i, j]`",
+                "c": "`Max[i, j] = Allocation[i, j] - Need[i, j]`",
+                "d": "`Need[i, j] = Max[i, j] - Allocation[i, j]`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 77,
+            "question": "关系模型中，一个关键字可由（ ）组成。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "一个属性",
+                "b": "以上都不对",
+                "c": "一个或多个属性",
+                "d": "多个属性"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 78,
+            "question": "给定声明 `int *p[10];`，下列说法中错误的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`p` 中每个元素都是一个指针变量",
+                "b": "`p` 是数组名",
+                "c": "`p` 是一个指针数组",
+                "d": "`p++` 操作是合法的"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 79,
+            "question": "如下程序中，注释 1 和注释 2 处的输出结果是（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\n#include <stdio.h>\nmain()\n{\n    union {\n        int i[2];\n        long k;\n        char c[4];\n    } t, *s = &t;\n    s->i[0] = 0x39;\n    s->i[1] = 0x38;\n    printf(\"%lx\\n\", s->k);   /* 1 */\n    printf(\"%c\\n\", s->c[0]); /* 2 */\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "380038，38",
+                "b": "380039，39",
+                "c": "380039，9",
+                "d": "380038，8"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 80,
+            "question": "下面关于虚电路方式中路由选择的说法中，正确的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "建立连接和发送数据都进行路由选择",
+                "b": "传送数据时进行路由选择",
+                "c": "只在建立虚电路时进行路由选择",
+                "d": "建立连接和发送数据时都不进行路由选择"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 81,
+            "question": "对进程间互斥地使用临界资源的情况，进程可以（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "互斥地进入各自的同类资源临界区",
+                "b": "互斥地进入临界区",
+                "c": "互斥地进入同一临界区",
+                "d": "互斥地进入各自的临界区"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 82,
+            "question": "关系 $R$ 与关系 $S$ 只有 1 个公共属性。$T_1$ 是 $R$ 与 $S$ 作 $\\theta$ 连接的结果，$T_2$ 是 $R$ 与 $S$ 作自然连接的结果，则（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$T_1$ 的属性个数大于 $T_2$ 的属性个数",
+                "b": "$T_1$ 的属性个数小于 $T_2$ 的属性个数",
+                "c": "$T_1$ 的属性个数大于或等于 $T_2$ 的属性个数",
+                "d": "$T_1$ 的属性个数等于 $T_2$ 的属性个数"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 83,
+            "question": "关系模式 $R(x_1, x_2, x_3, x_4)$ 存在函数依赖 $x_1 \\rightarrow x_2、x_1 \\rightarrow x_3、x_3 \\rightarrow x_4$，则该关系属于（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "BCNF",
+                "b": "3NF",
+                "c": "4NF",
+                "d": "2NF"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 84,
+            "question": "下列排序算法中，某一趟结束后，未必能选出一个元素放在其最终位置上的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "冒泡排序",
+                "b": "快速排序",
+                "c": "堆排序",
+                "d": "直接插入排序"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 85,
+            "question": "在 OSI 参考模型中，下列功能需要由应用层的相邻层实现的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "路由选择",
+                "b": "对话管理",
+                "c": "可靠数据传输",
+                "d": "数据格式转换"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 86,
+            "question": "下列介质访问控制方法中，可能发生冲突的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "CDMA",
+                "b": "FDMA",
+                "c": "CSMA",
+                "d": "TDMA"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 87,
+            "question": "设循环队列存储在下标范围为 1 到 n 的一维数组中，队头指针为 `f`、队尾指针为 `r`，则队列元素个数为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$(r - f + n)\\bmod n + 1$",
+                "b": "$(r - f)\\bmod n + 1$",
+                "c": "$r - f + 1$",
+                "d": "$r - f$"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 88,
+            "question": "下列文件物理结构中，适合随机访问且易于文件扩展的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "索引结构",
+                "b": "链式结构且磁盘块变长",
+                "c": "链式结构且磁盘块定长",
+                "d": "连续结构"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 89,
+            "question": "下列协议中，在数据链路层的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "ARP",
+                "b": "ICMP",
+                "c": "UDP",
+                "d": "FTP",
+                "e": "HTTP"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 90,
+            "question": "下列页面置换算法中，（ ）会产生 Belady 现象。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "先进先出（FIFO）",
+                "b": "最近最少使用（LRU）",
+                "c": "最不经常使用（LFU）",
+                "d": "最佳置换"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 91,
+            "question": "TCP/IP 参考模型的网络层提供的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "无连接可靠的数据报服务",
+                "b": "无连接不可靠的数据报服务",
+                "c": "有链接不可靠的虚电路服务",
+                "d": "有链接可靠的虚电路服务"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 92,
+            "question": "设谓词 $P(x)$ 表示“$x$ 是奇数”，$Q(x)$ 表示“$x$ 是偶数”。谓词公式 $\\exists x\\,(P(x)\\lor Q(x))$ 在个体域（ ）中为真。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "以上都成立",
+                "b": "自然数",
+                "c": "实数",
+                "d": "复数"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 93,
+            "question": "数据库管理系统能实现对数据库中数据表、索引等对象的定义、修改、删除，这类语言称为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "数据定义语言（DDL）",
+                "b": "数据操纵语言（DML）",
+                "c": "数据控制语言（DCL）",
+                "d": "数据查询语言（DQL）"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 94,
+            "question": "已知某进程的段表内容如下所示。访问段号为 2、段内地址为 4000 的逻辑地址时，进行地址转换的结果是（ ）。",
+            "extra": "markdown",
+            "extra_body": "| 段号 | 段长 | 内存起始地址 | 权限 | 状态 |\n| :-: | :-: | :-: | :-: | :-: |\n| 0 | 100 | 6000 | 只读 | 在内存 |\n| 1 | 200 | - | 读写 | 不在内存 |\n| 2 | 300 | 4000 | 读写 | 在内存 |",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "越界异常",
+                "b": "段缺失异常",
+                "c": "越权异常",
+                "d": "得到内存地址 4300"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 95,
+            "question": "以下磁盘调度算法中，（ ）可能出现“饥饿”现象。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "电梯调度",
+                "b": "先来先服务",
+                "c": "循环扫描",
+                "d": "最短寻道时间优先"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 96,
+            "question": "在一个采用 CSMA/CD 协议的网络中，传输介质是一根完整的电缆，传输速率为 1Gbit/s，电缆中的信号传播速度为 200000km/s，若最小数据帧减少 800bit，则最远的的两个站点之间的距离至少需要（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "减少 80m",
+                "b": "增加 160m",
+                "c": "增加 80m",
+                "d": "减少 160m"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 97,
+            "question": "以下程序运行后的输出结果是（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\nvoid fun(char *a, char *b) {\n    a = b; (*a)++;\n}\nmain() {\n    char c1 = 'A', c2 = 'a', *p1, *p2;\n    p1 = &c1; p2 = &c2; fun(p1, p2);\n    printf(\"%c%c\\n\", c1, c2);\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "Ab",
+                "b": "aa",
+                "c": "Aa",
+                "d": "Bb"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 98,
+            "question": "用邻接表法存储图所用的空间大小",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "与图的顶点数和边数有关",
+                "b": "只与图的边数有关",
+                "c": "与边数的平方有关",
+                "d": "只与图的顶点数有关"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 99,
+            "question": "已知 `a=15`，`b=240`，则 C 语言表达式 `(a&b)&b||b` 的结果是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`true`",
+                "b": "0",
+                "c": "`false`",
+                "d": "1"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 100,
+            "question": "IPv4 数据报分片的重组通常发生在（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "数据报经过的路由器上",
+                "b": "目的主机上",
+                "c": "源主机和数据报经过的路由器上",
+                "d": "源主机上"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 101,
+            "question": "执行下列程序时，若 `k` 输入为 1，则输出结果是（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\nmain() {\n    int k;\n    scanf(\"%d\", &k);\n    switch(k) {\n        case 1:\n            printf(\"%d\",k++);\n        case 2:\n            printf(\"%d\",k++);\n        case 3:\n            printf(\"%d\",k++);\n            break;\n        default:\n            printf(\"Full!\");\n    }\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "123",
+                "b": "1",
+                "c": "3",
+                "d": "2"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 102,
+            "question": "文件系统采用多级目录结构的目的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "缩短传送时间",
+                "b": "减少系统开销",
+                "c": "解决命名冲突",
+                "d": "节省存储空间"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 103,
+            "question": "下列 SQL 语句中，能够实现“收回用户 ZHAO 对学生表（STUD）中学号（XH）的修改权”这一功能的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`REVOKE UPDATE(XH) ON STUD FROM PUBLIC`",
+                "b": "`REVOKE UPDATE(XH) ON STUD FROM ZHAO`",
+                "c": "`REVOKE UPDATE(XH) ON TABLE FROM PUBLIC`",
+                "d": "`REVOKE UPDATE(XH) ON TABLE FROM ZHAO`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 104,
+            "question": "下面程序段的时间复杂度是（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\ni = s = 0;\nwhile (s < n) {\n    i++;\n    s += i;\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$O(n)$",
+                "b": "$O(n\\log n)$",
+                "c": "$O(n^2)$",
+                "d": "$O(\\sqrt{n})$"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 105,
+            "question": "关于“死锁”，下列说法中正确的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "在数据库操作中防止死锁的方法是禁止两个用户同时操作数据库",
+                "b": "死锁是操作系统中的问题，数据库操作中不存在",
+                "c": "当两个用户竞争相同资源时不会发生死锁",
+                "d": "只有出现并发操作时，才有可能出现死锁"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 106,
+            "question": "已知 `int x; float y;`，`scanf` 调用语句的格式为 `scanf(\"x=%d, y=%f\", &x, &y);`。若要将数据 10 和 66.6 分别赋给 `x` 和 `y`，正确的输入是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`x=10,y=66.6` 后回车",
+                "b": "`x=10` 后回车，再输入 `y=66.6` 后回车",
+                "c": "`x:10` 后回车，再输入 `y:66.6` 后回车",
+                "d": "`10,66.6` 后回车"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 107,
+            "question": "设 $U$ 是所有属性的集合，$X$、$Y$、$Z$ 都是 $U$ 的子集，且 $Z = U - X - Y$。下列关于多值依赖的叙述中，不正确的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "若 $X \\rightarrow\\rightarrow Y$，且 $Y'\\in Y$，则  $X \\rightarrow\\rightarrow Y'$",
+                "b": "若 $Z \\in \\phi$，则 $X \\rightarrow\\rightarrow Y$",
+                "c": "若 $X \\rightarrow Y$，则 $X \\rightarrow\\rightarrow Y$",
+                "d": "若  $X \\rightarrow\\rightarrow Y$，则 $X \\rightarrow\\rightarrow Z$"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 108,
+            "question": "在操作系统中，（ ）指的是一种硬件机制。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "内存覆盖技术",
+                "b": "SPOOLing",
+                "c": "缓冲池",
+                "d": "通道技术"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 109,
+            "question": "事务的隔离性是指（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "一个事务内部的操作及使用的数据对并发的其他事务是隔离的",
+                "b": "事务中包括的所有操作要么都做，要么都不做",
+                "c": "事务必须使数据库从一个一致性状态变到另一个一致性状态",
+                "d": "事务一旦提交，对数据库的改变是永久的"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 110,
+            "question": "设无向图 $G$ 有 16 条边，且每个顶点的度数都是 2，则图 $G$ 有（ ）个顶点。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "16",
+                "b": "10",
+                "c": "4",
+                "d": "8"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 111,
+            "question": "广义表 $A=((a), a)$ 的表头和表尾分别是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "表头为 $(a)$，表尾为 $(a)$",
+                "b": "表头为 $a$，表尾为 $a$",
+                "c": "表头为 $(a)$，表尾为 $a$",
+                "d": "表头为 $a$，表尾为 $(a)$"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 112,
+            "question": "已知一棵 5 阶 B 树中共有 53 个关键字，则树的最大高度为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "5",
+                "b": "2",
+                "c": "3",
+                "d": "4"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 113,
+            "question": "某自治系统内采用 RIP 协议，若该自治系统内的路由器 R1 收到其邻居路由器 R2 的距离矢量，距离矢量包括信息 `net1, 16`，则能得出的结论是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "R2 可以到达 net1，跳数为 16",
+                "b": "R1 可以经过 R2 到达 net1，跳数为 17",
+                "c": "R2 可以经过 R1 到达 net1，跳数为 17",
+                "d": "R1 不能经过 R2 到达 net1"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 114,
+            "question": "就平均性能而言，最好的内排序方法是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "直接插入排序",
+                "b": "冒泡排序",
+                "c": "希尔排序",
+                "d": "快速排序"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 115,
+            "question": "视图消解的概念是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "将对视图的查询转换为对具体数据记录查询的过程",
+                "b": "将对视图的查询转换为对基本表的查询的过程",
+                "c": "将对视图的查询转换为逻辑查询的过程",
+                "d": "将对视图的查询转换为对数据文件的查询的过程"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 116,
+            "question": "下面描述中，正确的一条描述是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "显式链接文件将分配给文件的下一个物理盘块的地址登记在该文件的前一个物理盘块中",
+                "b": "顺序文件适合于建立在顺序存储设备上，而不适合建立在磁盘上",
+                "c": "在 MS-DOS 中采用的是隐式链接文件结构",
+                "d": "顺序文件必须采用连续分配方式，而链接文件和索引文件则可采用离散分配方式"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 117,
+            "question": "现有一个容量为 160GB 的磁盘分区，磁盘空间以簇为单位进行分配，簇的大小为 8KB，若采用位图法管理该分区的空闲空间，即用一位标识一个簇是否分配，则存放该位图的簇为（ ）个。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "320K",
+                "b": "160K",
+                "c": "160",
+                "d": "320"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 118,
+            "question": "下列说法中，（ ）不是磁盘设备的特点。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "传输速率较高，以数据块为传输单位",
+                "b": "一段时间内只允许一个用户（进程）访问",
+                "c": "I/O 控制方式常采用 DMA 方式",
+                "d": "可以寻址，随机读 / 写任意数据块"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 119,
+            "question": "若一颗完全二叉树有 $2n - 1$ 个结点，则它有（ ）个叶子结点。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$n$",
+                "b": "$n - 1$",
+                "c": "$2n$",
+                "d": "$2$"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 120,
+            "question": "关系数据库规范化是为了解决关系数据库中（ ）问题而引入的。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "数据操作复杂性",
+                "b": "数据访问安全性",
+                "c": "检索速度",
+                "d": "数据不一致性"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 121,
+            "question": "对于 100Mbps 的以太网交换机，当输出端口无排队，以直通交换（cut-through switching）方式转发一个以太网帧（不包括前导码）时，引入的转发延迟至少是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "121.44μs",
+                "b": "0.48μs",
+                "c": "5.12μs",
+                "d": "0μs"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 122,
+            "question": "就计算机网络而言，在协议分层实现中，当数据分组从设备 A 传输到设备 B 时，在设备 A 的第 3 层加上首部分会在设备 B 的（ ）层被读出。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "3",
+                "b": "2",
+                "c": "4",
+                "d": "5"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 123,
+            "question": "设平面图 $G$ 是连通的，$G^*$ 是 $G$ 的对偶图，$G$ 的顶点数、边数、面数分别为 10、12、4，则 $G^*$ 的顶点数为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "4",
+                "b": "10",
+                "c": "12",
+                "d": "26"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 124,
+            "question": "导致以下程序出现死循环的语句是（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\nmain() {\n    int i = 0;\n    while (i < 10) {\n        if (i < 1) continue;\n        if (i == 5) break;\n        i++;\n    }\n/* ... */\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`if(i<1) continue;`",
+                "b": "`i++;`",
+                "c": "`if(i == 5) break;`",
+                "d": "以上都不对，因为不会出现死循环"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 125,
+            "question": "文件索引结点中有 7 个地址项，其中 4 个为直接地址索引、2 个为一级间接地址索引、1 个为二级间接地址索引。每个地址项 4 字节，磁盘索引块和数据块均为 256 字节。可表示的单个文件最大长度是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "33KB",
+                "b": "16513KB",
+                "c": "1057KB",
+                "d": "519KB"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 126,
+            "question": "站点 A、B、C 通过 CDMA 共享链路，A、B、C 的码片序列分别是 (1, 1, 1, 1)、(1, -1, 1, -1) 和 (1, 1, -1, -1)。若 C 从链路上收到的序列是 (2, 0, 2, 0, 0, -2, 0, -2, 0, 2, 0, 2)，则 C 收到 A 发送的数据是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "000",
+                "b": "111",
+                "c": "101",
+                "d": "110"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 127,
+            "question": "进程和程序的一个本质区别是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "前者在一个文件中，后者在多个文件中",
+                "b": "前者存储在内存，后者存储在外存",
+                "c": "前者分时使用 CPU，后者独占 CPU",
+                "d": "前者为动态的，后者为静态的"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 128,
+            "question": "在数据库的表定义中，限制成绩属性列的取值在 0 到 100 的范围内，属于数据的（ ）约束。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "参照完整性",
+                "b": "实体完整性",
+                "c": "用户操作",
+                "d": "用户自定义"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 129,
+            "question": "某计算机的指令流水线由四个功能段组成，指令流经各功能段的时间（忽略各功能段之间的缓存时间）分别为 90ns、80ns、70ns 和 60ns，则该计算机的 CPU 时钟周期至少是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "60ns",
+                "b": "70ns",
+                "c": "90ns",
+                "d": "80ns"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 130,
+            "question": "主机甲与主机乙之间已建立一条 TCP 连接，双方持续有数据传输，且数据无差错与丢失。若甲收到一个来自乙的 TCP 报文段，该段的序号为 1913，确认序号为 2046，有效荷载为 100 字节，则甲立即发送给乙的报文段的序号和确认序号分别为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "2047，2012",
+                "b": "2046，2012",
+                "c": "2046，2013",
+                "d": "2047，2013"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 131,
+            "question": "假如一个有向图具有有序的拓扑排序序列，那么，该图的邻接矩阵应为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "稀疏的",
+                "b": "无规则的",
+                "c": "三角的",
+                "d": "对称的"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 132,
+            "question": "以下程序中，函数 `scmp` 的功能是返回形参指针 `s1` 和 `s2` 所指字符串中较小字符串的首地址。若运行时依次输入：`abcd`、`abba` 和 `abc` 三个字符串，则输出结果为（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\nchar *scmp(char *s1, char *s2)\n{\n    if (strcmp(s1, s2) < 0)\n        return(s1);\n    else\n        return(s2);\n}\nmain()\n{\n    int i;\n    char string[20], str[3][20];\n    for(i = 0; i < 3; i++) gets(str[i]);\n    strcpy(string, scmp(str[0], str[1])); /* 库函数 strcpy 对字符串进行复制 */\n    strcpy(string, scmp(string, str[2]));\n    printf(\"%s\\n\", string);\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`abc`",
+                "b": "`abcd`",
+                "c": "`abba`",
+                "d": "`abca`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 133,
+            "question": "若计算机主存地址为 32 位，按字节编址，Cache 数据区大小为 32KB，主存块大小为 32B，采用直接映射方式和回写（Write Back）策略，则 Cache 行的位数至少是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "275",
+                "b": "257",
+                "c": "274",
+                "d": "258"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 134,
+            "question": "设与某资源关联的信号量初值为 3，当前值为 1。若 $M$ 表示该资源的可用个数，$N$ 表示等待该资源的进程数，则 $M$、$N$ 分别是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "2、0",
+                "b": "1、2",
+                "c": "1、0",
+                "d": "0、1"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 135,
+            "question": "IEEE 802.11 无线局域网的 MAC 协议 CSMA/CA 进行信道预约的方法是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "使用多个 MAC 地址",
+                "b": "发送确认帧",
+                "c": "交换 RTS 与 CTS 帧",
+                "d": "采用二进制指数退避"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 136,
+            "question": "某虚拟存储器系统采用页式内存管理，使用 LRU 页面替换算法，考虑页面访问地址序列 (3, 8, 1, 7, 8, 2, 7, 2, 1, 8, 3, 1, 2, 1, 3, 1, 7, 1, 2, 8)。假定内存容量为 4 个页面，开始时是空的，则页面失效次数是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "6",
+                "b": "8",
+                "c": "5",
+                "d": "7"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 137,
+            "question": "一般来说，邻接多重表和十字链表分别用于存储（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "无向图和无向图",
+                "b": "无向图和有向图",
+                "c": "有向图和有向图",
+                "d": "有向图和无向图"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 138,
+            "question": "某基于动态分区存储管理的计算机，其主存容量为 55MB（初始为空闲），采用最佳适配（Best Fit）算法。分配和释放的顺序为：分配 15MB，分配 30MB，释放 15MB，分配 8MB，分配 6MB。此时主存中最大空闲分区的大小是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "10MB",
+                "b": "15MB",
+                "c": "7MB",
+                "d": "9MB"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 139,
+            "question": "以下程序执行后，输出结果是（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\nmain() {\n    char *p[10] = { \"abc\", \"aabdfg\", \"dcdbe\", \"abbd\", \"cd\" };\n    printf(\"%d\\n\", strlen(p[4]));\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "4",
+                "b": "3",
+                "c": "5",
+                "d": "2"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 140,
+            "question": "主机甲和主机乙已建立了 TCP 连接，甲始终以 MSS = 1KB 大小的段发送数据，并一直有数据发送；乙每收到一个数据段都会发出一个接收窗口为 10KB 的确认段。若甲在 $t$ 时刻发生超时时拥塞窗口为 8KB，则从 $t$ 时刻起，不再发生超时的情况下，经过 10 个 RTT 后，甲的发送窗口是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "10KB",
+                "b": "12KB",
+                "c": "14KB",
+                "d": "5KB"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 141,
+            "question": "$A = \\{1, 2, 3\\}$，$R_1, R_2, R_3$ 是 $A$ 上的关系，其中 $R_1 = \\{\\langle 1,1 \\rangle, \\langle 2, 2 \\rangle\\}$，$R_2 = \\{\\langle 1, 1 \\rangle, \\langle 2,2 \\rangle, \\langle 3, 3 \\rangle, \\langle 1, 2\\rangle\\}$，$R_3 = \\{\\langle 1, 3 \\rangle\\}$。则以下满足自反的、反自反的、既不是自反的也不是反自反的关系的序列是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$R_2, R_3, R_1$",
+                "b": "$R_2, R_1, R_3$",
+                "c": "$R_1, R_3, R_2$",
+                "d": "$R_1, R_2, R_3$"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 142,
+            "question": "有两个并发执行的进程 `P1` 和 `P2`，共享初值为 1 的变量 `x`。`P1` 对 `x` 加 1，`P2` 对 `x` 减 1。加 1 和减 1 操作的指令序列分别如下所示。两个操作完成后，`x` 的值（ ）。",
+            "extra": "markdown",
+            "extra_body": "```text\n// 加 1 操作\nload R1, x    // 取 x 到寄存器 R1 中\ninc R1\nstore x, R1   // 将 R1 的内容存入 x\n\n// 减 1 操作\nload R2, x\ndec R2\nstore x, R2\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "只能为 1",
+                "b": "可能为 0、1 或 2",
+                "c": "可能为 -1 或 3",
+                "d": "可能为 -1、0、1 或 2"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 143,
+            "question": "给定关键字序列 $(40, 35, 65, 97, 76, 11, 27, \\underline{40})$，按快速排序方法对其从小到大排序。以第一个数为基准，进行一趟排序后的结果为（ ）。说明：$\\underline{40}$ 加下划线是为了与前面的第一个关键字 $40$ 加以区分。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$(27, 11, 35, 40, 76, 97, 65, \\underline{40})$",
+                "b": "$(27, 35, 11, 40, 76, 97, 65, \\underline{40})$",
+                "c": "$(27, 11, 35, \\underline{40}, 76, 97, 65, 40)$",
+                "d": "以上都不对"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 144,
+            "question": "在通信中要传输字母 a，b，c，d，e，f，g，它们出现的频率依次为 30%，20%，15%，10%，10%，9%，6%。假设已设计用于传输上述字母的最佳二元前缀码，则传输 100 个按上述频率出现的字母所需的二进制数字的个数为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "256",
+                "b": "250",
+                "c": "265",
+                "d": "300"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 145,
+            "question": "有 10 台计算机建成 10Mbps 以太网，如分别采用共享以太网和交换以太网技术，则每个站点所获得的数据传输速率分别为",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "1Mbps，10Mbps",
+                "b": "1Mbps，1Mbps",
+                "c": "10Mbps，1Mbps",
+                "d": "10Mbps，10Mbps"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 146,
+            "question": "以下策略中，能够用于判断有向图是否存在回路（环）的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "拓扑排序",
+                "b": "广度优先搜索",
+                "c": "关键路径",
+                "d": "Dijkstra 算法"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 147,
+            "question": "对于二叉树的遍历算法，如果某结点 `m` 是另外一个结点 `n` 的祖先，那么采用（ ）方式可以找到 `m` 到 `n` 的一条路径。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "层次遍历",
+                "b": "后序遍历",
+                "c": "中序遍历",
+                "d": "先序遍历"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 148,
+            "question": "对于一棵 `m` 阶的 B 树，如下说法不正确的选项是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "树中所有每个结点至多有 `m` 棵子树",
+                "b": "根结点至少有 2 棵子树",
+                "c": "所有结点至少有 $\\lceil \\frac{m}{2} \\rceil$ 棵子树",
+                "d": "所有的终端结点（失败结点）都位于同一层"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 149,
+            "question": "某机器字长 16 位，主存按字节编址，转移指令采用相对寻址，由两个字节组成，第一字节为操作码字段，第二字节为相对位移量字段。假定取指令时，每取一个字节 `PC` 自动加 1。若某转移指令所在主存地址为 `3000H`，相对位移量字段的内容为 `06H`，则该转移指令成功转移后的目标地址是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`3008H`",
+                "b": "`3009H`",
+                "c": "`3007H`",
+                "d": "`3006H`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 150,
+            "question": "假设某省的语文高考成绩保存在一个大数组中（按准考证号从小到大存放），且语文成绩为 0~150 之间的整数（含 0 和 150）。现要求对该数组进行按语文成绩从高到低的排序。针对该排序问题，速度最快且稳定的排序方法是（ ）。此处的稳定是指，当两个考生成绩相同时，准考证号小的排在前面。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "快速排序",
+                "b": "桶排序",
+                "c": "归并排序",
+                "d": "堆排序"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 151,
+            "question": "已知关系模式 $R(A, B, C, D, E, G, K)$，其最小函数依赖集 $F = \\{ AB \\to C, B \\to DE, C \\to G, G \\to A\\}$。依据数据库原理，下列说法中错误的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`ABK` 是候选码",
+                "b": "`BGK` 是候选码",
+                "c": "`BCK` 是候选码",
+                "d": "模式 $R$ 是 2NF"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 152,
+            "question": "下列关于交换机的叙述中，正确的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "以太网交换机本质上是一种多端口网桥",
+                "b": "交换机每个端口所连网络构成一个独立的广播域",
+                "c": "以太网交换机可实现采用不同网络层协议的网络互联",
+                "d": "通过交换机互连的一组工作站构成一个冲突域"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 153,
+            "question": "一组记录的关键字为 $\\{18, 13, 22, 1, 67, 15, 82, 26, 54, 93, 8, 80\\}$，采用链地址法构造哈希表，散列函数定义为 $H(\\text{key}) = \\text{key} \\mod 13$。散列地址为 2 的链中记录数为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "2",
+                "b": "5",
+                "c": "3",
+                "d": "4"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 154,
+            "question": "固态盘属于（ ）设备。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "链接存取",
+                "b": "直接存取",
+                "c": "随机存取",
+                "d": "顺序存取"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 155,
+            "question": "使用 SPOOLing 系统的目的是为了提高（ ）的使用效率。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "操作系统",
+                "b": "内存",
+                "c": "I/O 设备",
+                "d": "CPU"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 156,
+            "question": "主机甲通过 1 个路由器（存储转发方式）与主机乙互联，两段链路的数据传输速率均为 10Mbps。主机甲分别采用报文交换和分组大小为 10kb 的分组交换向主机乙发送 1 个大小为 8Mb（$1M = 10^6$）的报文。若忽略链路传播延迟、分组头开销和分组拆装时间，则两种交换方式完成该报文传输所需的总时间分别为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "1600ms，801ms",
+                "b": "800ms，1600ms",
+                "c": "1600ms，800ms",
+                "d": "801ms，1600ms"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 157,
+            "question": "假设磁头当前位于第 105 道，且正在向磁道序号增加的方向移动。现有一个磁道访问请求序列为35，45，12，68，110，180，170，195，采用 SCAN 算法得到的磁道访问序列是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "110，170，180，195，12，35，45，68",
+                "b": "12，35，45，68，110，170，180，195",
+                "c": "110，68，45，35，12，170，180，195",
+                "d": "110，170，180，195，68，45，36，12"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 158,
+            "question": "在关系模式 $R(A, B, C, D)$ 中，有函数依赖 $F=\\{B \\to C, C \\to D, D \\to A\\}$，则 $R$ 可以达到（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "1NF",
+                "b": "2NF",
+                "c": "以上三者都不可能",
+                "d": "3NF"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 159,
+            "question": "下面程序的运行结果是（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\n#include <stdio.h>\n\nint Fun(int m) {\n    static int n = 0;\n    m /= 2;\n    m = m * 2;\n    if (m) {\n        n *= m;\n        return(Fun(m - 2));\n    } else return n;\n}\n\nint main(void) {\n    int a, i, j;\n    for (i = 0; i < 2; i++) {\n        a = Fun(4 + i);\n        printf(\"%d,\", a);\n    }\n    return 0;\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`8,8,`",
+                "b": "`4,4,`",
+                "c": "`64,64,`",
+                "d": "`0,0,`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 160,
+            "question": "主机甲与主机乙之间使用后退 $N$ 帧协议（GBN）传输数据，甲的发送窗口尺寸为 1000，数据帧长为 1000 字节，信道带宽为 100Mbps。乙每收到一个数据帧立即利用一个短帧（忽略其传输延迟）进行确认。若甲、乙之间的单向传播延迟是 50ms，则甲可以达到的最大平均数据传输速率约为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "100Mbps",
+                "b": "80Mbps",
+                "c": "20Mbps",
+                "d": "10Mbps"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 161,
+            "question": "E - R 方法的三要素是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "实体、域、候选键。",
+                "b": "实体、属性、联系；",
+                "c": "实体、键、联系；",
+                "d": "实体、属性、实体集；"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 162,
+            "question": "用户进程通过 `read` 系统调用读取磁盘文件数据。下列叙述中正确的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": true,
+            "multiple_options": [
+                "若文件数据不在内存，则该进程进入睡眠等待状态；",
+                "请求 `read` 系统调用会导致 CPU 从用户态切换到核心态；",
+                "`read` 系统调用的参数应包含文件名。"
+            ],
+            "options": {
+                "a": "仅 1、3",
+                "b": "仅 2、3",
+                "c": "仅 1、2",
+                "d": "1、2、3"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 163,
+            "question": "冯·诺依曼计算机中，指令和数据均以二进制形式存放在存储器中，CPU 区分它们的依据是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "指令和数据所在的存储单元",
+                "b": "指令和数据的寻址方式",
+                "c": "指令操作码的译码结果",
+                "d": "指令周期的不同阶段"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 164,
+            "question": "已知一个森林，若将其转换成等价的树和二叉树来存储，那么，如下说法正确的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "该森林的先序遍历和树的后序遍历等价",
+                "b": "该森林的中序遍历和对应二叉树的中序遍历等价",
+                "c": "该树的先序遍历和对应二叉树的中序遍历等价",
+                "d": "该树的中序遍历和对应二叉树的后序遍历等价"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 165,
+            "question": "下列关于 RISC 的叙述中，错误的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "RISC 大多数指令在一个时钟周期内完成",
+                "b": "RISC 的指令数、寻址方式和指令格式种类相对 CISC 少",
+                "c": "RISC 普遍采用微程序控制器",
+                "d": "RISC 的内部通用寄存器数量相对 CISC 多"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 166,
+            "question": "在字符串匹配算法中，假如主串长度为 $n$，模式串长度为 $m$（$m < n$），采用经典的字符串匹配 KMP 算法进行匹配，其算法时间复杂度是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$O(n)$",
+                "b": "$O(m+n)$",
+                "c": "$O(mn)$",
+                "d": "$O(m)$"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 167,
+            "question": "两台主机之间的数据链路层采用后退 $N$ 帧协议（GBN）传输数据，数据传输速率为 16 kbps，单向传播时延为 270ms，数据帧长度范围 128~512 字节，接收方总是以与数据帧等长的帧进行确认。为使信道利用率达到最高，帧序号的比特数至少为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "4",
+                "b": "2",
+                "c": "3",
+                "d": "5"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 168,
+            "question": "下列函数的功能是（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\nint fun(char *s) {\n    char *t = s;\n    while(*t++);\n    return (t - s);\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "计算 `s` 所指字符串的长度",
+                "b": "将 `s` 所指字符串复制到字符串 `t` 中",
+                "c": "计算 `s` 所指字符串占用内存字节的个数",
+                "d": "比较两个字符串大小"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 169,
+            "question": "已知系统为 32 位实地址，采用 48 位虚拟地址，页面大小 4KB，页表项大小为 8B；每段最大为 4GB。假设系统使用纯页式存储，则要采用多级页表的级数和页内偏移位数分别是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "4，12",
+                "b": "3，12",
+                "c": "4，11",
+                "d": "3，11"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 170,
+            "question": "含有 $n$ 个元素的有序表，其二分（折半）查找所形成的判定树树高是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$\\lceil \\log_2(n + 1) \\rceil$",
+                "b": "$\\lfloor \\log_2(n + 1) \\rfloor - 1$",
+                "c": "$\\lceil \\log_2(n) \\rceil$",
+                "d": "$\\lfloor \\log_2(n) \\rfloor - 1$"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 171,
+            "question": "FTP 传输文件时使用的 TCP 连接是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "持久的数据连接",
+                "b": "持久的控制连接",
+                "c": "非持久的数据连接",
+                "d": "非持久的控制连接"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 172,
+            "question": "偏序集 $\\langle\\{1, 2, 3, 4, 5, 6, 7, 8\\}, \\prec\\rangle$ 的哈斯图如下，则 $B = \\{2, 3, 4, 5, 7\\}$ 时，$B$ 的上界和下界分别是（ ）。",
+            "extra": "image",
+            "extra_body": "image/2024-q32.svg",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "7、8；1",
+                "b": "7；1",
+                "c": "8；1",
+                "d": "7、8；1、2"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 173,
+            "question": "某路由器的路由表如下表所示。若路由器收到一个目的地址为 169.96.40.5 的 IP 分组，则转发该 IP 分组的接口是（ ）。",
+            "extra": "markdown",
+            "extra_body": "| 目的网络 | 下一跳 | 接口 |\n| :- | :-: | :-: |\n| 169.96.40.0/23 | 176.1.1.1 | S1 |\n| 169.96.40.0/25 | 176.2.2.2 | S2 |\n| 169.96.40.0/27 | 176.3.3.3 | S3 |\n| 0.0.0.0/0 | 176.4.4.4 | S4 |",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "S3",
+                "b": "S4",
+                "c": "S2",
+                "d": "S1"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 174,
+            "question": "顶点标定顺序的无向完全图 $K_n$（$n\\geq 3$）中，在定义意义下共含有（ ）条不同的哈密顿回路。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$2^n$",
+                "b": "1",
+                "c": "$n!$",
+                "d": "$n$"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 175,
+            "question": "主机甲采用停 - 等协议向主机乙发送数据，数据传输速率是 3kbps，单向传播延时是 200ms，忽略确认帧的传输延时。当信道利用率等于 40% 时，数据帧的长度为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "800 比特",
+                "b": "240 比特",
+                "c": "400 比特",
+                "d": "480 比特"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 176,
+            "question": "假设初始栈为空，将中缀表达式 `a/b+(c*d-e*f)/g+h/i` 转换为对应的后缀表达式过程中，当扫描到 `g` 时，操作符栈中存储的数据元素是（　）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`-*`",
+                "b": "`+`",
+                "c": "`+(*`",
+                "d": "`/+*`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 177,
+            "question": "在关系模型中，为了实现“关系中不允许出现相同元组”的约束，应使用（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "索引码",
+                "b": "排序码",
+                "c": "主码",
+                "d": "外码"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 178,
+            "question": "一棵包含 1001 个结点的哈夫曼树，如果对其进行哈夫曼编码，可能存在的哈夫曼码字个数是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "501",
+                "b": "500",
+                "c": "502",
+                "d": "503"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 179,
+            "question": "以下程序的输出结果是（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\nint f()\n{\n    static int i = 0;\n    int s = 1;\n    s += i;\n    i++;\n    return s;\n}\nmain()\n{\n    int i, a = 0;\n    for (i = 0; i < 5; i++)\n        a += f();\n    printf(\"%d\\n\", a);\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "15",
+                "b": "24",
+                "c": "25",
+                "d": "20"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 180,
+            "question": "若用邻接矩阵存储有向图，矩阵中主对角线以下的元素均为零，则关于该图拓扑序列的结论是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "存在，且唯一",
+                "b": "无法确定是否存在",
+                "c": "存在，且不唯一",
+                "d": "存在，可能不唯一"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 181,
+            "question": "令 $F(x)$ 表示“$x$ 是实数”，$G(x)$ 表示“$x$ 是有理数”。命题“实数不全是有理数”的符号化形式可以表示为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$(\\forall x\\,F(x))\\land(\\exists x\\,\\neg G(x))$",
+                "b": "$\\exists x\\,(F(x)\\rightarrow\\neg G(x))$",
+                "c": "$\\forall x\\,(F(x)\\rightarrow\\neg G(x))$",
+                "d": "$\\neg\\forall x\\,(F(x)\\rightarrow G(x))$"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 182,
+            "question": "在 SQL Server 中，删除触发器使用（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`DEALLOCATE`",
+                "b": "`ROLLBACK`",
+                "c": "`DELETE`",
+                "d": "`DROP`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 183,
+            "question": "下列说法中，错误的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$p\\rightarrow(p\\lor\\neg q\\lor r)$ 是重言式",
+                "b": "$\\neg(p\\leftrightarrow q)\\leftrightarrow((p\\land\\neg q)\\lor(\\neg p\\land q))$ 是重言式",
+                "c": "$(\\neg(p\\rightarrow q)\\land q)\\land r$ 是可满足式",
+                "d": "$\\neg(((p\\lor q)\\land\\neg p)\\rightarrow q)$ 是矛盾式"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 184,
+            "question": "定义 `int a[9], *p = a;`，以后语句中未改变 `p` 的值。不能表示 `a[1]` 地址的表达式是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`a+1`",
+                "b": "`p+1`",
+                "c": "`a++`",
+                "d": "`++p`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 185,
+            "question": "对于下列命中组合，一次访存过程中，不可能发生的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "TLB 命中，Cache 命中，Page 未命中",
+                "b": "TLB 命中，Cache 未命中，Page 命中",
+                "c": "TLB 未命中，Cache 命中，Page 命中",
+                "d": "TLB 未命中，Cache 未命中，Page 未命中"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 186,
+            "question": "内存动态分区管理中，最佳适应算法的空白区是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "按大小递增顺序排列的",
+                "b": "按地址由大到小排列的",
+                "c": "按大小递减顺序排列的",
+                "d": "按地址由小到大排列的"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 187,
+            "question": "线索二叉树的说法正确的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "引入线索二叉树能够更快地找到结点的后驱或后继",
+                "b": "线索二叉树是一种逻辑结构",
+                "c": "线索二叉树每一个结点都有指向前驱和后继的指针",
+                "d": "引入线索二叉树的目的是为了方便二叉树的插入和删除"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 188,
+            "question": "给定如下程序段，执行该程序段后，`a` 的值为（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\nint *p, a = 10, b = 1;\np = &a; a = *p + b;\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "10",
+                "b": "11",
+                "c": "编译出错",
+                "d": "12"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 189,
+            "question": "下列选项给出的是从根分别到达两个叶结点路径上的权值序列，能属于同一棵哈夫曼树的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "24，10，5 和 24，10，7",
+                "b": "24，10，5 和 24，14，6",
+                "c": "24，10，10 和 24，14，11",
+                "d": "24，10，5 和 24，12，7"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 190,
+            "question": "对关系执行“投影”运算后，元组的个数与原关系中元组的个数（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "小于元关系",
+                "b": "大于原关系",
+                "c": "相同",
+                "d": "不大于原关系"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 191,
+            "question": "构造一个 7 层的平衡二叉树，需要的最小结点数是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "29",
+                "b": "31",
+                "c": "33",
+                "d": "30"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 192,
+            "question": "下面的两个关系中，职工号和设备号分别为职工关系和设备关系的关键字：",
+            "extra": "markdown",
+            "extra_body": "```text\n职工（职工号，职工名，部门号，职务，工资）\n设备（设备号，职工号，设备名，数量）\n```\n\n在这两个关系的属性中，存在一个外关键字为（ ）。",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "设备关系的“职工号”",
+                "b": "职工关系的“职工号”",
+                "c": "职工关系的“设备号”",
+                "d": "设备关系的“设备号”"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 193,
+            "question": "关系模式 $R$ 中若没有非主属性，则（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$R$ 肯定属于 BCNF，但 $R$ 不一定属于 4NF",
+                "b": "$R$ 肯定属于 3NF，但 $R$ 不一定属于 BCNF",
+                "c": "$R$ 属于 2NF，但 $R$ 不一定属于 3NF",
+                "d": "$R$ 肯定属于 4NF"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 194,
+            "question": "$2 k + 1$ 阶轮图的点色数和边色数分别是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$2,\\ 2k$",
+                "b": "$3,\\ 2k$",
+                "c": "$2,\\ 3k$",
+                "d": "$3,\\ 3k$"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 195,
+            "question": "$K_{3, 4}$ 的点色数和边色数分别是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "4，2",
+                "b": "2，3",
+                "c": "2，4",
+                "d": "3，2"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 196,
+            "question": "设有三个作业 J1、J2 和 J3。J1 的提交时间和所需运行时间分别为 0 和 4，J2 的提交时间和所需运行时间分别为 2 和 8，J3 的提交时间和所需运行时间分别为 3 和 5。若采用短作业优先调度策略，则该作业串的平均周转时间为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "25",
+                "b": "8.33",
+                "c": "17",
+                "d": "5.67"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 197,
+            "question": "已知循环队列存储在一维数组 `A[0..n-1]` 中，且队列非空时 `front` 和 `rear` 分别指向队头元素和队尾元素。若初始时队列为空，且要求第 1 个进入队列的元素存储在 `A[0]` 处，则初始时 `front` 和 `rear` 的值分别是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`0`，`0`",
+                "b": "`n-1`，`0`",
+                "c": "`n-1`，`n-1`",
+                "d": "`0`，`n-1`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 198,
+            "question": "系统总是访问磁盘的某个磁道而不响应对其他磁道的访问请求，这种现象称为磁臂黏着。下列磁盘调度算法中，不会导致磁臂黏着的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "循环扫描算法（CSCAN）",
+                "b": "先来先服务（FCFS）",
+                "c": "扫描算法（SCAN）",
+                "d": "最短寻道时间优先（SSTF）"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 199,
+            "question": "在下图所示的平衡二叉树中，插入关键字 48 后得到一棵新平衡二叉树。在新平衡二叉树中，关键字 37 所在结点的左、右子结点中保存的关键字分别是（ ）。",
+            "extra": "image",
+            "extra_body": "image/2024-q46.svg",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "24，90",
+                "b": "24，48",
+                "c": "24，53",
+                "d": "13，48"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 200,
+            "question": "将指令 Cache 与数据 Cache 分离的主要目的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "提高 Cache 的命中率",
+                "b": "降低 CPU 平均访存时间",
+                "c": "降低 Cache 的缺失损失",
+                "d": "减少指令流水线资源冲突"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 201,
+            "question": "在表或视图上执行除了（ ）以外的语句都可以激活触发器。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`Create`",
+                "b": "`Delete`",
+                "c": "`Insert`",
+                "d": "`Update`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 202,
+            "question": "以下程序运行后的输出结果是（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\nint a = 3;\nmain() {\n    int s = 0;\n    { int a = 5; s += a++; }\n    s += a++;\n    printf(\"%d\\n\", s);\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "11",
+                "b": "10",
+                "c": "7",
+                "d": "8"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 203,
+            "question": "彼得森图的点覆盖数 $\\alpha_0$ 和边覆盖数 $\\alpha_1$ 分别为（ ）。",
+            "extra": "image",
+            "extra_body": "image/2024-petersen.svg",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "5，6",
+                "b": "6，4",
+                "c": "4，6",
+                "d": "6，5"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 204,
+            "question": "有六个元素 6，5，4，3，2，1 顺序入栈，下列（ ）不是合法的出栈序列。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "453126",
+                "b": "543612",
+                "c": "346521",
+                "d": "234156"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 205,
+            "question": "某队列允许在其两端进行入队操作，但仅允许在一端进行出队操作。若元素 a、b、c、d、e 依次入此队列后再进行出队操作，则不可能得到的出队序列是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "d b c a e",
+                "b": "d b a c e",
+                "c": "e c b a d",
+                "d": "b a c d e"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 206,
+            "question": "下列语句中是真命题的为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "不准喧哗",
+                "b": "如果 1 + 2 = 3，那么雪是黑的",
+                "c": "我正在说谎",
+                "d": "如果 1 + 2 = 4，那么雪是白的"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 207,
+            "question": "彼得森图的点独立数 $\\beta_0$ 和匹配数 $\\beta_1$ 分别是（ ）。",
+            "extra": "image",
+            "extra_body": "image/2024-petersen.svg",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "5，4",
+                "b": "5，6",
+                "c": "4，5",
+                "d": "4，6"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 208,
+            "question": "当 $G$ 为有限群，子群 $H$ 所含元的个数与任一左陪集 $aH$ 所含元的个数（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "以上都不对",
+                "b": "可能相等，也可能不相等",
+                "c": "相等",
+                "d": "不相等"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 209,
+            "question": "设 $n$ 是描述问题规模的非负整数，下面程序片段的时间复杂度是（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\nx = 2;\nwhile (x < n / 2)\n    x = 2 * x;\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$O(\\log_2 n)$",
+                "b": "$O(n)$",
+                "c": "$O(n\\log_2 n)$",
+                "d": "$O(n^2)$"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 210,
+            "question": "将关键字序列 69，33，59，73，70，72 和 71 依次插入后，构造成一棵二叉排序树，那么查找 71 要进行比较的次数是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "5",
+                "b": "6",
+                "c": "3",
+                "d": "4"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 211,
+            "question": "有 $m$ 个进程共享同一临界资源。若使用信号量机制实现对这一临界资源的互斥访问，则信号量的变化范围是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$1$ 至 $-m$",
+                "b": "$1$ 至 $m$",
+                "c": "$1$ 至 $m-1$",
+                "d": "$1$ 至 $-(m-1)$"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 212,
+            "question": "将森林转换为对应的二叉树，若在二叉树中，结点 $u$ 是结点 $v$ 的父结点的父结点，则在原来的森林中，$u$ 和 $v$ 可能具有的关系是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": true,
+            "multiple_options": [
+                "父子关系",
+                "兄弟关系",
+                "$u$ 的父节点和 $v$ 的父节点是兄弟关系"
+            ],
+            "options": {
+                "a": "1，2，3",
+                "b": "1，3",
+                "c": "2",
+                "d": "1，2"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 213,
+            "question": "在 `SELECT` 语句中，与关系代数中 $\\sigma$（选择）运算符对应的是（ ）子句。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`GROUP BY`",
+                "b": "`SELECT`",
+                "c": "`WHERE`",
+                "d": "`FROM`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 214,
+            "question": "HTTP Cookie 是服务器发送到用户浏览器并保存在本地的一小段数据，浏览器在后续向同一服务器发起请求时会自动携带该 Cookie。下列叙述中，不属于 Cookie 技术典型用途的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "缩短 Web 对象的响应时间",
+                "b": "用户跟踪",
+                "c": "个性化推荐",
+                "d": "构建虚拟购物车"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 215,
+            "question": "若结点 `p` 与 `q` 在二叉搜索树 `T` 中的中序遍历中相邻，且 `p` 在 `q` 之前，则下列 `p` 与 `q` 的关系中，不可能的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": true,
+            "multiple_options": [
+                "`q` 是 `p` 的双亲",
+                "`q` 是 `p` 的右孩子",
+                "`q` 是 `p` 的右兄弟",
+                "`q` 是 `p` 的双亲的双亲"
+            ],
+            "options": {
+                "a": "2，3",
+                "b": "3",
+                "c": "2，4",
+                "d": "1"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 216,
+            "question": "设有关系模式 $R(X, Y, Z)$ 与它的函数依赖集 $F = \\{ X \\to Y, Y \\to Z\\}$，则 $F$ 的闭包 $F^+$ 中左部为 $(XY)$ 的函数依赖有（ ）个。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "16",
+                "b": "4",
+                "c": "32",
+                "d": "8"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 217,
+            "question": "有如下程序：",
+            "extra": "markdown",
+            "extra_body": "```c\nmain()\n{\n    FILE *fp1;\n    fp1 = fopen(\"f1.txt\", \"w\");\n    fprintf(fp1, \"abc\");\n    fclose(fp1);\n}\n```\n\n若文本文件 `f1.txt` 中原有内容为 `good`，则运行以上程序后文件 `f1.txt` 中的内容为（ ）。",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`abcgood`",
+                "b": "`abc`",
+                "c": "`abcd`",
+                "d": "`goodabc`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 218,
+            "question": "某请求分页存储系统的页大小为 4KB，按字节编址，系统给进程 P 分配 2 个固定的页框，并采用改进型 Clock 置换算法，进程 P 页表的部分内容见下表。若 P 访问虚拟地址为 `02A01H` 的存储单元，则经地址变换后得到的物理地址是（ ）。",
+            "extra": "markdown",
+            "extra_body": "| 页号 | 页框号 | 存在位 | 访问位 |\n| :-: | - | :-: | :-: |\n| ... | ... | ... | ... |\n| 2 | 20H | 0 | 0 |\n| 3 | 60H | 1 | 1 |\n| 4 | 80H | 1 | 1 |\n| ... | ... | ... | ... |",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`80A01H`",
+                "b": "`20A01H`",
+                "c": "`60A01H`",
+                "d": "`00A01H`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 219,
+            "question": "Mysql 中表 `student_table(id, name, birth, sex)`，查询不重复的姓名总数，错误的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`select count(name) from (select distinct name from student_table) t1;`",
+                "b": "`select count(distinct name) from student_table;`",
+                "c": "`select count(name) from (select name from student_table group by name) t1;`",
+                "d": "`select count(name) from (select name, count(*) as c1 from student_table group by name having c1 > 1) t1`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 220,
+            "question": "下列关于银行家算法的叙述中，正确的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "银行家算法破坏了死锁必要条件中的“请求和保持”条件",
+                "b": "当系统处于不安全状态时，系统中一定会出现死锁进程",
+                "c": "银行家算法可以预防死锁",
+                "d": "当系统处于安全状态时，系统中一定无死锁进程"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 221,
+            "question": "某系统采用改进型 CLOCK 置换算法，页表项中字段 `A` 为访问位，`M` 为修改位。`A = 0` 表示页最近没有被访问过，`A = 1` 表示页最近被访问过。`M = 0` 表示页没有被修改过，`M = 1` 表示页被修改过。按 `(A, M)` 的取值，将页分为 4 类：`(0, 0)`，`(1, 0)`，`(0, 1)`，`(1, 1)`，则该算法淘汰页的次序为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`(0, 0)`，`(0, 1)`，`(1, 1)`，`(1, 0)`",
+                "b": "`(0, 0)`，`(0, 1)`，`(1, 0)`，`(1, 1)`",
+                "c": "`(0, 0)`，`(1, 0)`，`(0, 1)`，`(1, 1)`",
+                "d": "`(0, 0)`，`(1, 1)`，`(0, 1)`，`(1, 0)`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 222,
+            "question": "假设系统中有 4 个同类资源，进程 P1、P2 和 P3 需要的资源数分别为 4、3 和 1，P1、P2 和 P3 已申请到的资源数分别为 2、1 和 0，则执行安全性检测算法的结果是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "不存在安全序列，系统处于不安全状态",
+                "b": "存在多个安全序列，系统处于安全状态",
+                "c": "存在唯一的安全序列 P3、P1、P2，系统处于安全状态",
+                "d": "存在唯一安全序列 P3、P2、P1，系统处于安全状态"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 223,
+            "question": "以下错误的描述是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`break` 语句不能用于循环语句和 `switch` 语句外的任何其他语句",
+                "b": "在循环语句中使用 `break` 语句是为了使流程跳出循环体，提前结束循环",
+                "c": "在循环语句中使用 `continue` 语句是为了结束本次循环，而不是终止整个循环",
+                "d": "在 `switch` 语句中使用 `break` 语句或 `continue` 语句的作用相同"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 224,
+            "question": "下图所示的平面图的面的次数是（ ）。",
+            "extra": "image",
+            "extra_body": "image/2026-q14.svg",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "12",
+                "b": "10",
+                "c": "6",
+                "d": "8"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 225,
+            "question": "设 $G=\\langle R^*, \\cdot\\rangle$ 是非 0 实数关于乘法构成的群，下列说法中错误的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$f(x)=|x|$ 是同态映射。",
+                "b": "$f(x)=2x$ 是同态映射。",
+                "c": "$f(x)=|x|$ 不是单同态。",
+                "d": "$f(x)=|x|$ 不是满同态。"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 226,
+            "question": "在 I/O 子系统中，由驱动程序和中断服务程序直接控制外设与主机之间的输入/输出操作，其中需要用到一些特权指令。特权指令只允许操作系统内核在内核态下执行，用户程序无权使用。下列指令中，不是特权指令的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "关中断指令",
+                "b": "I/O 指令",
+                "c": "系统调用指令",
+                "d": "中断返回指令"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 227,
+            "question": "下面程序的输出是（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\nmain()\n{\n    int y = 9;\n    for(; y > 0; --y) {\n        if(y % 3 == 0) {\n            printf(\"%d\", y--);\n            continue;\n        }\n    }\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "852",
+                "b": "875421",
+                "c": "963",
+                "d": "741"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 228,
+            "question": "以下（ ）是不正确的。",
+            "extra": "markdown",
+            "extra_body": "```c\nvoid fork1()\n{\n    printf(\"L0\\n\");\n    if (fork() == 0) {\n        printf(\"L1\\n\");\n        if (fork() == 0) {\n            printf(\"L2\\n\");\n        }\n    }\n    printf(\"Bye\\n\");\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "L0, Bye, L1, Bye, Bye, L2",
+                "b": "L0, Bye, L1, Bye, L2, Bye",
+                "c": "L0, L1, Bye, L2, Bye, Bye",
+                "d": "L0, Bye, L1, L2, Bye, Bye"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 229,
+            "question": "若大小为 12B 的应用层数据分别通过 1 个 UDP 数据报和 1 个 TCP 段传输，则该 UDP 数据报和 TCP 段实现的有效载荷（应用层数据）最大传输效率分别是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "60.0%，37.5%",
+                "b": "60.0%，16.7%",
+                "c": "37.5%，16.7%",
+                "d": "37.5%，37.5%"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 230,
+            "question": "有以下程序：",
+            "extra": "markdown",
+            "extra_body": "```c\nint *f(int *x, int *y)\n{\n    if(*x < *y) return x;\n    else return y;\n}\n\nmain()\n{\n    int a = 7, b = 8, *p, *q, *r;\n    p = &a, q = &b; r = f(p, q);\n    printf(\"%d,%d,%d\\n\", *p, *q, *r);\n}\n```\n\n执行后输出结果是（ ）。",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`8,7,8`",
+                "b": "`8,7,7`",
+                "c": "`7,8,8`",
+                "d": "`7,8,7`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 231,
+            "question": "给定如下所示的 $L_1, L_2$，下列说法中，错误的是（ ）。",
+            "extra": "image",
+            "extra_body": "image/2026-q23.svg",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$L_1$ 是有补格。",
+                "b": "$L_2$ 不是分配格。",
+                "c": "$L_2$ 是有补格。",
+                "d": "$L_1$ 不是分配格。"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 232,
+            "question": "对磁盘上的两个文件 F1 和 F2，它们的第一个数据块分别为 22 和 16。给定 FAT 表项如下：`(14, 18)`；`(15, 17)`；`(16, 23)`；`(17, 21)`；`(18, 20)`；`(19, 15)`；`(20, -1)`；`(21, -1)`；`(22, 19)`；`(23, 14)`。在上面的符号中 `(x, y)` 表示存储在表项 `x` 中的值指向数据块 `y`。以下哪个数据块属于 F2？（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "21",
+                "b": "19",
+                "c": "22",
+                "d": "20"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 233,
+            "question": "下列程序的时间复杂度为（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\nlong fact(int n) {\n    if (n == 0 || n == 1)\n        return 1;\n    else\n        return n * fact(n - 1);\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$O(n^2)$",
+                "b": "$O(\\log n)$",
+                "c": "$O(n)$",
+                "d": "$O(1)$"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 234,
+            "question": "某计算机按字节编址，数据 Cache 共有 1024 行，采用 4 路组相联映射方式，主存块大小为 32B。若访问主存地址为 1028 的 4 字节数据，则该数据所在主存块对应的 Cache 组号为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "16",
+                "b": "64",
+                "c": "32",
+                "d": "4"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 235,
+            "question": "在一个 CDMA 网络中，某站点正接收另一码序列为 `(-1,1,1,-1,-1,-1,1,-1)` 的站点发送的数据，若该站点收到 `(-111-1-1-11-1 1-1-1111-11 1-1-1111-11 -111-1-1-11-1)`，则该站点收到的数据是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "1000",
+                "b": "1001",
+                "c": "0110",
+                "d": "0001"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 236,
+            "question": "在计算 UDP 校验和时，封装 UDP 报文段的 IP 数据报首部某些字段也会参与计算，这些字段是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": true,
+            "multiple_options": [
+                "源 IP 地址",
+                "目的 IP 地址",
+                "协议",
+                "TTL"
+            ],
+            "options": {
+                "a": "全部",
+                "b": "3、4",
+                "c": "1、2、3",
+                "d": "1、2"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 237,
+            "question": "一个数学领域的猜想，名为六度分割理论或小世界理论。理论指出：你和任何一个陌生人之间所间隔的人不会超过六个，也就是说，最多通过 6 个中间人你就能够认识任何一个陌生人，这就是六度分割理论，也叫小世界理论。假设图 $G$ 中每一个人作为顶点，任意两个人之间是否认识（关联）为边，以“0 号人物”为起点，试设计一个尽可能高效的算法计算“0 号人物”到其他任意其他人之间的最快关联距离。这个相对较优的算法可以采用（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "广度优先遍历",
+                "b": "深度优先遍历",
+                "c": "Prim 算法",
+                "d": "拓扑排序"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 238,
+            "question": "Oracle 数据库存储空间的最小 I/O 单位是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "数据块",
+                "b": "表空间",
+                "c": "段",
+                "d": "区间"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 239,
+            "question": "给定 8 个叶子结点，其权值分别为 5，5，6，7，10，15，20，30。若用 Huffman 算法构造一棵最优二叉树（Huffman 树），则该树的带权路径长度 $W(T)$ 为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "266",
+                "b": "268",
+                "c": "256",
+                "d": "267"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 240,
+            "question": "影响哈希查找（散列法）算法平均查找长度的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": true,
+            "multiple_options": [
+                "装填因子",
+                "散列函数",
+                "解决冲突的策略"
+            ],
+            "options": {
+                "a": "2、3",
+                "b": "1、2、3",
+                "c": "1",
+                "d": "1、3"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 241,
+            "question": "假定以下程序经编译和连接后生成可执行文件 `PROG.exe`，如果在命令行窗口下键入命令：`PROG ABCDEFGH IJKL` 然后回车，则输出结果为（ ）。",
+            "extra": "markdown",
+            "extra_body": "```c\nmain(int argc, char *argv[]) {\n    while(--argc > 0)\n        printf(\"%s\", argv[argc]);\n    printf(\"\\n\");\n}\n```",
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`ABCDEFGHIJKL`",
+                "b": "`IJKLABCDEFGH`",
+                "c": "`ABCDEFG`",
+                "d": "`IJHL`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 242,
+            "question": "某网络中路由器采用支持毒性逆转技术的距离向量路由算法计算路由，若该网络内的路由器 R1 收到其唯一邻居路由器 R2 的距离向量中包含 $\\langle 202.118/16, 10 \\rangle$（距离为跳数），则 R1 更新后交换给 R2 的关于子网 202.118/16 的距离向量是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$\\langle 202.118/16, 10 \\rangle$",
+                "b": "$\\langle 202.118/16, 11 \\rangle$",
+                "c": "$\\langle 202.118/16, 9 \\rangle$",
+                "d": "$\\langle 202.118/16, \\infty \\rangle$"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 243,
+            "question": "设森林 $F$ 中有 5 棵树，其结点个数分别为 2，3，4，5，7。按森林转换为二叉树的“左孩子右兄弟”规则，将 $F$ 转换成二叉树，所得二叉树的最小高度为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "10",
+                "b": "6",
+                "c": "8",
+                "d": "5"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 244,
+            "question": "有如下的语句：`scanf(\"a=%d,b=%d,c=%d\", &a, &b, &c);` 为使变量 `a` 的值为 1，`b` 的值为 2，`c` 的值为 3，从键盘输入数据的正确形式是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`a=1,b=3,c=2;`",
+                "b": "`32`",
+                "c": "`1,2,3`",
+                "d": "`a=1,b=2,c=3`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 245,
+            "question": "在视图上不能完成的操作是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "更新视图数据",
+                "b": "在视图上定义新的基本表",
+                "c": "在视图上定义新的视图",
+                "d": "查询"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 246,
+            "question": "在文件的索引结点中存放直接索引指针 10 个，一级和二级索引指针各 1 个。磁盘块大小为 1KB，每个索引指针占 4B。若某文件的索引结点已在内存中，则把该文件偏移量（按字节编址）为 1234 和 307400 所在的磁盘块读入内存，需要访问的磁盘块个数分别是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "1，2",
+                "b": "2，3",
+                "c": "2，4",
+                "d": "1，3"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 247,
+            "question": "在分段存储管理系统中，用共享段表描述所有被共享的段，若进程 P1 和 P2 共享段 S，则下列叙述中，错误的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "在物理内存中仅保存一份段 S 的内容",
+                "b": "P1 和 P2 都不再使用段 S 时才回收段 S 所占的内存空间",
+                "c": "P1 和 P2 共享段 S 在共享段表中的段表项",
+                "d": "段 S 在 P1 和 P2 中应该具有相同的段号"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 248,
+            "question": "若将 IP 网络 123.4.4.0/22 划分为规模均衡的 32 个子网，则 IP 地址 123.4.5.11 所在的子网是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "123.4.4.0/27",
+                "b": "123.4.5.32/27",
+                "c": "123.4.5.192/27",
+                "d": "123.4.5.0/27"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 249,
+            "question": "稀疏矩阵一般的压缩存储方法有两种，即（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "三元组和十字链表",
+                "b": "散列和十字链表",
+                "c": "二维数组和三维数组",
+                "d": "三元组和散列"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 250,
+            "question": "设有两门考试科目，成绩分别记为 $X$ 和 $Y$。现需对若干考生按以下规则进行排序：（1）首先按总成绩 $X+Y$ 由高到低排序；（2）总成绩相同时，按 $X$ 的成绩由高到低排序；（3）$X$ 也相同时，按 $Y$ 的成绩由高到低排序。若要求排序结果在上述多级排序规则下保持稳定性（即总成绩、$X$ 和 $Y$ 均相同的考生，排序后相对顺序不变），则下列排序算法中，最适合的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "归并排序",
+                "b": "希尔排序",
+                "c": "快速排序",
+                "d": "基数排序"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 251,
+            "question": "在 IEEE 802.11 无线局域网中，无线主机主动与 AP 关联时，发送的帧数是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "4",
+                "b": "1",
+                "c": "2",
+                "d": "3"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 252,
+            "question": "主机甲通过一条链路连接主机乙，链路带宽为 10 Mbps（$M = 10^6$），单向传播延时为 7 ms。若甲采用 GBN 协议向乙发送帧长为 1000B 的数据帧，乙采用帧长为 250B 的确认帧进行确认，数据帧序号为 4 比特编号，则甲的最大信道利用率约为（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "85%",
+                "b": "100%",
+                "c": "80%",
+                "d": "10%"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 253,
+            "question": "下列有关基于时间片的进程调度的叙述中，错误的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "当前进程的时间片用完后，该进程状态由执行态变为阻塞态",
+                "b": "时钟中断发生后，系统会修改当前进程在时间片内的剩余时间",
+                "c": "时间片越短，进程切换的次数越多，系统开销越大",
+                "d": "影响时间片大小的主要因素包括响应时间、系统开销和进程数量"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 254,
+            "question": "具有 134 个结点的完全二叉树中，如果有 67 个叶结点，则一定有（ ）个度为 1 的结点。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "2",
+                "b": "1",
+                "c": "5",
+                "d": "9"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 255,
+            "question": "以下错误的描述是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "使用 while 和 do~while 循环时，循环变量初始化的操作应在循环语句之前完成",
+                "b": "while 循环是先判断表达式，后执行循环体语句",
+                "c": "do~while 和 for 循环均是先执行循环体语句，后判断表达式",
+                "d": "for、while、do~while 循环中的循环体均可由空语句构成"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 256,
+            "question": "一棵 $m$ 阶 B 树中，除根节点外，每个分支节点至少有（ ）个关键字。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$\\lfloor m/2 \\rfloor -1$",
+                "b": "$\\lfloor m/2 \\rfloor$",
+                "c": "$\\lfloor m/2 \\rfloor +1$",
+                "d": "以上都不是"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 257,
+            "question": "检索销量表中销量最好的商品 id 和销量，下列 SQL 语句正确的是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "`SELECT 商品id, 销量 FROM 销量表 WHERE 销量 = MAX(销量);`",
+                "b": "`SELECT 商品id, 销量 FROM 销量表 WHERE 销量 = (SELECT MAX(销量) FROM 销量表);`",
+                "c": "`SELECT 商品id, MAX(销量) FROM 销量表 GROUP BY 销量;`",
+                "d": "`SELECT 商品id, MAX(销量) FROM 销量表 GROUP BY 商品id;`"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 258,
+            "question": "`GRANT` 命令属于（ ）操作。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "DCL",
+                "b": "DDL",
+                "c": "DQL",
+                "d": "DML"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 259,
+            "question": "已知关系模式 $R(A, B, C, D, E)$ 及其上的函数依赖集合 $F=\\{A\\rightarrow D, B\\rightarrow C, E\\rightarrow A\\}$，该关系模式的候选关键字是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "$BE$",
+                "b": "$AB$",
+                "c": "$CD$",
+                "d": "$DE$"
+            },
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 260,
+            "question": "若某路由器需要向 MTU = 512B 的链路上转发一个 DF = 1、总长度为 1500B 的 IP 数据报，则路由器对该数据报的处理是（ ）。",
+            "extra": null,
+            "extra_body": null,
+            "multiple": false,
+            "multiple_options": null,
+            "options": {
+                "a": "丢弃",
+                "b": "分为 4 片",
+                "c": "分为 3 片",
+                "d": "分为 5 片"
+            },
+            "answer": null,
+            "explain": null
+        }
+    ],
+    "judgement": [
+        {
+            "id": 1,
+            "question": "设 $a$ 是 10 阶群的生成元，则 $a^3$ 是 10 阶元素。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 2,
+            "question": "任意一个具有 2 个或以上元的半群，它一定是群。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 3,
+            "question": "顶点数相同的极大平面图唯一。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 4,
+            "question": "一个环 $R$ 对于加法来作成一个循环群，则 $R$ 是交换环。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 5,
+            "question": "无向图 $G$ 是欧拉图当且仅当 $G$ 连通且无奇度数顶点。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 6,
+            "question": "无向图 $G$ 是欧拉图当且仅当 $G$ 连通且恰有两个奇度顶点。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 7,
+            "question": "希尔排序的组内排序一般采用的是“直接插入排序”的排序方法。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 8,
+            "question": "图 $G$ 中有割边那么 $G$ 中一定有割点。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 9,
+            "question": "对于 $n$ 阶对称矩阵，采用压缩存储时，所需要的顺序表表长为 $\\frac{n(n-1)}{2}$。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 10,
+            "question": "具有 8 个关键字的有序表中，对每一个关键字查找概率相同，如果采用折半查找算法，那么，查找不成功的平均查找长度是 27/7。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 11,
+            "question": "$G$ 为无孤立点，则 $V^*$ 是极小（最小）点覆盖当且仅当 $\\bar{V}^* = V - V^*$ 是极大（最大）点独立集。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 12,
+            "question": "表达式 `a*(b+c)/d` 的后缀表达式是 `abc+*d-`。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 13,
+            "question": "已知变量 `X`、`Y`、`Z` 的机器数分别为 `FFFDH`、`FFDFH` 和 `7FFCH`，若 `X`、`Y`、`Z` 为带符号整数（补码表示），则 `X<Y<Z`。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 14,
+            "question": "数据库中，规范化的投影分解是唯一的。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 15,
+            "question": "数据库关系模型中，3NF 是指满足 2NF 且不存在部分依赖现象。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 16,
+            "question": "若 $k=125$，$q=8$，则 $k$ 在模 $q$ 下的乘法逆元是存在的。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 17,
+            "question": "报文交换无需进行报文拆分与重组，因此比分组交换效率高。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 18,
+            "question": "已知某计算机的 Cache 共有 16 块，采用 2 路组相联映射方式（即每组 2 块）；每个主存块大小为 32 字节，按字节编址。主存 129 号单元所在主存块应装入到的 Cache 组号是 4。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 19,
+            "question": "简单图的点色数不会超过它的最大度 。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 20,
+            "question": "在关系数据库中，依赖 $(S_\\text{no}, C_\\text{name}) \\to (C_\\text{name}, \\text{Grade})$ 是平凡函数依赖。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 21,
+            "question": "假设采用有向无环图存储和描述表达式 `(a-b)((a-b)/c)`，需要顶点数最少是 6。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 22,
+            "question": "$n$ 个顶点、$e$ 条边构成的一个无向图，如果将其看成一个森林，那么该森林必有 $n-e$ 棵树。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 23,
+            "question": "设 $R$ 与 $T$ 都是 $X$ 上的二元关系，如果 $R$ 和 $T$ 都是传递的，则 $R-T$ 也是传递的。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 24,
+            "question": "假如一棵二叉树的先序遍历结果是 `ABCDEF`，中序遍历是 `CBADFE`，那么后续遍历结果是 `CBFEDA`。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 25,
+            "question": "对于给定的如下所示的图 $G$，依据离散数学中关于平面图的定义，可知 $G$ 为平面图。",
+            "extra": "image",
+            "extra_body": "image/2021-1-19.svg",
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 26,
+            "question": "MySQL 中表 `student_info(id, name, birth, sex)`，字段类型都是 `varchar`，插入如下记录：`('1014', '张三', '2002-01-06', '男')`，SQL 语句可以写为：",
+            "extra": "markdown",
+            "extra_body": "```sql\ninsert into table student_info values('1014','张三','2002-01-06','男');\n```",
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 27,
+            "question": "在 SQL 查询时，使用 `where` 子句指出的是查询目标。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 28,
+            "question": "哈密顿图实际上是边不重的圈之并。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 29,
+            "question": "假设有许多用户利用 BT（Bit Torrent）应用分发一个文件，若某 Peer 在某时刻正在向 $n$ 个对等端发送数据块，则 $n$ 的最大值是 4。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 30,
+            "question": "设 $L$ 是有界分配格，如果补元存在，则它们是唯一的。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 31,
+            "question": "若多个进程共享同一个文件 `F`，则各进程只能用“读”方式打开文件 `F`。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 32,
+            "question": "假设所有变量均为整型，则表达式 `(a=2,b=5,b++,a+b)` 的值是 8。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 33,
+            "question": "进程调度算法各种各样，如果选择不当，有的进程可能不能获得执行的机会，最后造成该进程死锁。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 34,
+            "question": "在路由器体系结构中，完成路由表（或称转发表）检索与匹配，并决策转发路径的是输出端口。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 35,
+            "question": "外码是指一个属性的值在一个关系中出现，必须在另一个关系中也出现。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 36,
+            "question": "关于 C 语言程序：如果在程序中定义静态变量和全局变量时，未明确指明其初始值，那么它们可以在程序编译阶段自动被初始化为 0 值。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 37,
+            "question": "若系统中的 $n$ 个进程（$n\\geq2$），每个进程均需要使用某类临界资源 2 个，则系统不会发生死锁所需的该类资源总数至少为 $2n-1$。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 38,
+            "question": "视图是一个虚拟表，并不表示任何物理数据，而只是用来查看数据的窗口而已。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 39,
+            "question": "$\\exists x\\,(A(x)\\rightarrow B(x))\\leftrightarrow\\forall x\\,A(x)\\rightarrow\\exists x\\,B(x)$ 不是重言式。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 40,
+            "question": "虚电路网络可以确保携带相同虚电路号的系列分组按序到达目的。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 41,
+            "question": "如果期望将一个较大广播域的网络分割为两个独立的较小广播域网络，可以采用的方案是将原网络划分为两个 VLAN。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 42,
+            "question": "PPP 协议支持动态协商 IP 地址。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 43,
+            "question": "$(\\neg P\\land(\\neg Q\\land R))\\lor(Q\\land R)\\lor(P\\land R)\\leftrightarrow R$ 成立。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 44,
+            "question": "使用 `INNER JOIN` 和 `LEFT JOIN` 在查询中可以实现相同的联接操作。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 45,
+            "question": "在关系模式 $R$ 中，若没有非主属性，则 $R$ 属于 3NF，但 $R$ 不一定属于 BCNF。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 46,
+            "question": "设 $S$ 是一个具有单位元 $e$ 的半群，若 $b$ 和 $b'$ 是 $a$ 的逆，则 $b = b'$。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 47,
+            "question": "设有定义：`char a[4] = {1, 2, 3, 4};`，则数组元素 `a[2]` 的值为 2。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 48,
+            "question": "某计算机采用 16 位定长指令字格式，操作码位数和寻址方式位数固定，指令系统有 48 条指令，支持直接、间接、立即、相对 4 种寻址方式，则单地址指令中直接寻址方式的可寻址范围是 0～255。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 49,
+            "question": "若用数组名作为函数的实参，传递给形参的是数组第一个元素的地址值。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 50,
+            "question": "向函数传递参数时，实参和形参可以重名。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 51,
+            "question": "自然连接只从行的角度进行运算。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 52,
+            "question": "内模式是面向数据库用户或应用程序的局部数据视图。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 53,
+            "question": "假设一个采用 CSMA/CD 协议的 100Mb/s 局域网，最小帧长是 128B，则在一个冲突域内两个站点之间的单向传播延时最多是 5.12$\\mu s$。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 54,
+            "question": "一对多关系的建表原则是在多的一方建立外键指向一方的非主键字段。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 55,
+            "question": "SQL 语言是过程化语言。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 56,
+            "question": "数据模型分为层次模型、网状模型和关系模型。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 57,
+            "question": "在最小函数依赖集 $F$ 中，$F$ 中的每个函数依赖的左部都是单属性。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 58,
+            "question": "对于网络负载很重的无线网络，采用信道划分 MAC 协议比采用随机访问 MAC 协议的信道利用率更高。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 59,
+            "question": "IPv6 地址空间是 IPv4 地址空间的 96 倍。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 60,
+            "question": "发送方采用 CRC 计算数据校验码，采用的 CRC 生成多项式是 $x^6+x^4+x+1$。若发送的某个报文到达接收方为 `101011000110`，则所接收的报文是正确的。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        },
+        {
+            "id": 61,
+            "question": "唯一标识一个 UDP 套接字的是目的 IP 地址和目的端口号。",
+            "extra": null,
+            "extra_body": null,
+            "answer": null,
+            "explain": null
+        }
+    ]
+}

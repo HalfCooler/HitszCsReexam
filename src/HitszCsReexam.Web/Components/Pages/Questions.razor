@@ -1,0 +1,82 @@
+@page "/questions"
+@rendermode InteractiveServer
+@inject QuestionCatalog Catalog
+@inject IJSRuntime JS
+
+<PageTitle>题库浏览 · HITSZ CS Reexam</PageTitle>
+
+<div class="questions-page">
+    <div class="eyebrow"><span class="eyebrow-line"></span> QUESTION BANK / 题库浏览</div>
+    <div class="page-heading"><div><h1>今天，从哪道题开始？</h1><p>当前收录 @Catalog.Questions.Count 道题目。输入关键词，或按题型缩小范围。</p></div><a href="/" class="back-link">← 返回总览</a></div>
+    <div class="search-panel">
+        <div class="search-row"><span class="search-icon">⌕</span><input aria-label="搜索题目" placeholder="搜索题干或选项中的关键词" @bind="searchText" @bind:event="oninput" /><span class="search-hint">实时搜索</span></div>
+        <div class="filter-row" aria-label="按题型筛选">
+            <button type="button" class="@FilterClass("全部")" @onclick="ShowAll">全部 <span>@Catalog.Questions.Count</span></button>
+            <button type="button" class="@FilterClass("单项选择")" @onclick="ShowChoices">单项选择 <span>@Catalog.ChoiceCount</span></button>
+            <button type="button" class="@FilterClass("判断")" @onclick="ShowJudgments">判断题 <span>@Catalog.JudgmentCount</span></button>
+        </div>
+    </div>
+    <div class="results-heading"><span>找到 <strong>@FilteredQuestions.Count</strong> 道题目</span><span>题库持续整理中</span></div>
+    <div class="question-list">
+        @foreach (var question in FilteredQuestions.Take(visibleCount))
+        {
+            <article class="question-card">
+                <div class="question-meta"><span class="question-type">@question.Type</span><span>题库序号 @question.Id.ToString("D3")</span><span>@question.Score 分</span></div>
+                <div class="question-stem markdown-content">@((MarkupString)question.StemHtml)</div>
+                @if (question.ExtraHtml is not null)
+                {
+                    <div class="question-extra markdown-content">@((MarkupString)question.ExtraHtml)</div>
+                }
+                @if (question.Multiple)
+                {
+                    <ol class="multiple-options">
+                        @foreach (var statement in question.MultipleOptionHtml)
+                        {
+                            <li class="markdown-content">@((MarkupString)statement)</li>
+                        }
+                    </ol>
+                }
+                @if (question.Options.Count > 0)
+                {
+                    <div class="option-list">
+                        @for (var i = 0; i < question.Options.Count; i++)
+                        {
+                            <div class="option-item"><span class="option-label">@((char)('A' + i))</span><div class="markdown-content">@((MarkupString)question.OptionHtml[i])</div></div>
+                        }
+                    </div>
+                }
+            </article>
+        }
+        @if (FilteredQuestions.Count == 0)
+        {
+            <div class="empty-results"><strong>暂时没有找到相关题目</strong><p>换一个关键词，或选择其他题型试试。</p></div>
+        }
+    </div>
+    @if (FilteredQuestions.Count > visibleCount)
+    {
+        <button class="load-more" @onclick="() => visibleCount += 12">继续查看 <span>↓</span></button>
+    }
+</div>
+
+@code {
+    private string searchText = "";
+    private string selectedType = "全部";
+    private int visibleCount = 12;
+    private List<Question> FilteredQuestions => Catalog.Questions
+        .Where(q => selectedType == "全部" || q.Type == selectedType)
+        .Where(q => string.IsNullOrWhiteSpace(searchText) || q.Stem.Contains(searchText.Trim(), StringComparison.OrdinalIgnoreCase) ||
+            (q.ExtraBody?.Contains(searchText.Trim(), StringComparison.OrdinalIgnoreCase) ?? false) ||
+            q.MultipleOptions.Any(o => o.Contains(searchText.Trim(), StringComparison.OrdinalIgnoreCase)) ||
+            q.Options.Any(o => o.Contains(searchText.Trim(), StringComparison.OrdinalIgnoreCase)))
+        .ToList();
+
+    private void SetFilter(string type) { selectedType = type; visibleCount = 12; }
+    private void ShowAll() => SetFilter("全部");
+    private void ShowChoices() => SetFilter("单项选择");
+    private void ShowJudgments() => SetFilter("判断");
+    private string FilterClass(string type) => selectedType == type ? "filter-chip active" : "filter-chip";
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JS.InvokeVoidAsync("renderQuestionMath");
+    }
+}

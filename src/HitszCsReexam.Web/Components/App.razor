@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f6f2" />
+    <base href="/" />
+    <ResourcePreloader />
+    <link rel="stylesheet" href="@Assets["app.css"]" />
+    <link rel="stylesheet" href="@Assets["questions.css"]" />
+    <link rel="stylesheet" href="@Assets["vendor/katex/katex.min.css"]" />
+    <link rel="stylesheet" href="@Assets["HitszCsReexam.Web.styles.css"]" />
+    <ImportMap />
+    <HeadOutlet />
+</head>
+
+<body>
+    <Routes />
+    <ReconnectModal />
+    <script src="@Assets["vendor/katex/katex.min.js"]"></script>
+    <script src="@Assets["vendor/katex/contrib/auto-render.min.js"]"></script>
+    <script src="@Assets["question-math.js"]"></script>
+    <script src="@Assets["_framework/blazor.web.js"]"></script>
+</body>
+
+</html>

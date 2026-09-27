@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>复试机考系统 - 页面预览</title>
+  <style>
+    :root { color-scheme:light; --chrome:#d4d0c8; --border:#808080; --blue:#1d5d9b; --red:#c00000; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#e8e8e8; color:#111; font-family:Tahoma,"宋体",SimSun,sans-serif; font-size:14px; }
+    button,input { font:inherit; }
+    button { cursor:pointer; }
+    .app { display:flex; min-height:100vh; max-width:1600px; margin:auto; border-left:1px solid #999; border-right:1px solid #999; background:#fff; }
+    .sidebar { width:216px; flex:none; padding:12px 9px; border-right:2px groove #fff; background:var(--chrome); }
+    .brand { height:43px; padding:8px 10px; border:1px solid; border-color:#fff #808080 #808080 #fff; background:#d4d0c8; font-weight:bold; font-size:15px; white-space:nowrap; }
+    .brand-mark { display:inline-block; width:20px; margin-right:7px; color:#103f7c; }
+    .section-label { margin:19px 0 5px; padding:4px 7px; border-bottom:1px solid #888; color:#333; font-weight:bold; }
+    .side-nav { display:grid; gap:6px; }
+    .side-tab { width:100%; min-height:37px; display:flex; align-items:center; gap:9px; padding:5px 10px; border:1px solid; border-color:#fff #777 #777 #fff; border-radius:0; background:#d4d0c8; color:#111; text-align:left; }
+    .side-tab:hover { background:#dedbd3; }
+    .side-tab.active { border-color:#777 #fff #fff #777; background:#ece9d8; font-weight:bold; }
+    .side-tab .icon { width:16px; color:#315a86; text-align:center; }
+    .side-tab .count { margin-left:auto; font-size:12px; color:#555; }
+    .sidebar-note { margin-top:28px; border-top:1px solid #aaa; padding:11px 5px; color:#555; font-size:12px; line-height:1.6; }
+    .workspace { flex:1; min-width:0; }
+    .topbar { min-height:61px; display:flex; align-items:center; gap:16px; padding:8px 21px; border-bottom:1px solid #999; background:var(--chrome); }
+    .top-nav { display:flex; gap:4px; }
+    .top-link,.search button,.avatar { min-height:29px; padding:3px 16px; border:1px solid; border-color:#fff #777 #777 #fff; border-radius:0; background:#d4d0c8; color:#111; white-space:nowrap; }
+    .top-link:active,.top-link.active { border-color:#777 #fff #fff #777; background:#ece9d8; }
+    .search { display:flex; gap:4px; margin-left:auto; width:min(280px,42%); }
+    .search input { min-width:0; width:100%; height:27px; padding:3px 6px; border:1px solid; border-color:#777 #fff #fff #777; border-radius:0; outline:none; background:#fff; }
+    .search input:focus { outline:1px dotted #333; outline-offset:-3px; }
+    .search button { padding:3px 11px; }
+    .avatar { min-width:31px; padding:3px 7px; }
+    .content { max-width:1050px; margin:0 auto; padding:32px 36px 70px; }
+    .page-title { display:flex; align-items:baseline; justify-content:space-between; gap:15px; margin-bottom:3px; }
+    h1 { margin:0; font-size:26px; line-height:1.4; font-weight:normal; }
+    .intro { margin:0 0 18px; color:#555; font-size:12px; }
+    .progress { color:#333; font-size:12px; white-space:nowrap; }
+    .questions { display:grid; gap:14px; }
+    .question { border:1px solid #d5d5d5; border-radius:3px; background:#fff; padding:26px 25px 30px; }
+    .question-head { display:flex; align-items:baseline; gap:8px; }
+    .number { flex:none; color:var(--blue); font-family:Consolas,monospace; font-size:36px; font-style:italic; font-weight:bold; line-height:1; }
+    .stem { flex:1; margin:0; font-family:Consolas,NSimSun,"新宋体",SimSun,serif; font-size:16px; font-weight:normal; line-height:2.1; }
+    .score { margin-right:8px; color:#333; font-family:Consolas,NSimSun,"新宋体",SimSun,serif; font-size:14px; white-space:nowrap; }
+    .options { display:flex; flex-wrap:wrap; align-items:center; column-gap:29px; row-gap:13px; margin:15px 0 0 24px; }
+    .option { display:inline-flex; align-items:center; gap:6px; min-height:21px; color:#111; font-family:Consolas,NSimSun,"新宋体",SimSun,serif; font-size:17px; line-height:1.5; cursor:pointer; }
+    .option.selected { color:var(--red); }
+    .option input { appearance:none; -webkit-appearance:none; flex:none; width:16px; height:16px; margin:0; border:1px solid #c9c9c9; border-radius:50%; background:#f8f8f8; }
+    .option input:checked { border-color:var(--red); background:radial-gradient(circle at center,var(--red) 0 4px,#fff 4.5px); }
+    .option input:focus-visible { outline:1px dotted #222; outline-offset:2px; }
+    .check { display:none; color:var(--red); font-family:Arial,sans-serif; font-size:19px; font-weight:bold; line-height:1; }
+    .option.selected .check { display:inline; }
+    .empty { padding:35px; border:1px solid #ccc; text-align:center; }
+    .footer { margin-top:20px; color:#777; font-size:12px; text-align:center; }
+    @media (max-width:720px) { .sidebar{width:128px}.brand{font-size:12px;padding-left:5px}.brand-mark{display:none}.side-tab{padding:5px}.side-tab .count{display:none}.topbar{padding:7px;gap:6px}.top-link{padding:3px 7px}.search{width:38%}.content{padding:23px 13px}.question{padding:20px 14px}.options{margin-left:10px;column-gap:18px} }
+    @media (max-width:480px) { .sidebar{width:99px;padding:7px 4px}.side-tab .icon{display:none}.topbar{flex-wrap:wrap}.search{width:100%;order:2;margin:0}.avatar{margin-left:auto}.page-title{display:block}.number{font-size:30px}.stem{font-size:15px} }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" aria-label="题型导航">
+      <div class="brand"><span class="brand-mark">▣</span><span>复试机考系统</span></div>
+      <div class="section-label">题型选择</div>
+      <nav class="side-nav">
+        <button class="side-tab active" type="button" data-type="choice"><span class="icon">▤</span><span class="text">选择题</span><span class="count">4 题</span></button>
+        <button class="side-tab" type="button" data-type="judge"><span class="icon">□</span><span class="text">判断题</span><span class="count">4 题</span></button>
+      </nav>
+      <div class="sidebar-note">请在右侧答题区选择答案。<br>本页面为界面预览。</div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar">
+        <nav class="top-nav" aria-label="主导航">
+          <button class="top-link" type="button" data-view="paper">组卷</button>
+          <button class="top-link active" type="button" data-view="practice">刷题</button>
+        </nav>
+        <label class="search" aria-label="搜索题目">
+          <input id="search" type="search" placeholder="输入题目关键词">
+          <button id="search-button" type="button">查找</button>
+        </label>
+        <button class="avatar" type="button" title="用户（预览）">用户</button>
+      </header>
+      <main class="content">
+        <div class="page-title"><h1 id="title">单项选择题（8分）</h1><div class="progress" id="progress"></div></div>
+        <p class="intro" id="intro">请选择答案。</p>
+        <div class="questions" id="questions"></div>
+        <div class="footer">复试机考系统 · 页面预览</div>
+      </main>
+    </div>
+  </div>
+  <script>
+    const bank = {
+      choice: [
+        { stem:'Internet 中 MAC 地址和 IP 地址转换采用（ ）协议。', score:2, options:['ICMP (Internet Control Message Protocol)','ARP (Address Resolution Protocol)','PPP (Point to Point Protocol)','DHCP (Dynamic Host Configuration Protocol)'] },
+        { stem:'在下列选项中，属于预防死锁的方法是（ ）。', score:2, options:['资源随意分配','银行家算法','剥夺资源法','资源分配图简化法'] },
+        { stem:'一棵哈夫曼树共有 215 个结点，对其进行哈夫曼编码，共能得到（ ）个不同的码字。', score:2, options:['107','214','215','108'] },
+        { stem:'一棵高度为 2 的 5 阶 B 树中，所含关键字的个数最少是（ ）。', score:2, options:['8','7','5','14'] }
+      ],
+      judge: [
+        { stem:'设 a 是 10 阶群的生成元，则 a³ 是 10 阶元素。', score:1, options:['是','否'] },
+        { stem:'任意一个具有 2 个或以上元的半群，它一定是群。', score:1, options:['是','否'] },
+        { stem:'顶点数相同的极大平面图唯一。', score:1, options:['是','否'] },
+        { stem:'一个环 R 对于加法来作成一个循环群，则 R 是交换环。', score:1, options:['是','否'] }
+      ]
+    };
+    const answers = {choice:{},judge:{}};
+    let type = 'choice', view = 'practice';
+    const $ = id => document.getElementById(id);
+    function render() {
+      const isChoice = type === 'choice';
+      const title = isChoice ? '选择题' : '判断题';
+      const keyword = $('search').value.trim().toLocaleLowerCase();
+      const filtered = bank[type].map((q,i)=>({...q,index:i})).filter(q=>q.stem.toLocaleLowerCase().includes(keyword) || q.options.some(o=>o.toLocaleLowerCase().includes(keyword)));
+      $('title').textContent = (view === 'paper' ? '组卷 - ' : '') + (isChoice ? '单项选择题（8分）' : '判断题（4分）');
+      $('intro').textContent = view === 'paper' ? '按题型浏览题目。' : '请选择答案。';
+      $('progress').textContent = `已作答 ${Object.keys(answers[type]).length} / ${bank[type].length} 题`;
+      $('questions').replaceChildren();
+      if (!filtered.length) { const empty=document.createElement('div'); empty.className='empty'; empty.textContent='没有找到匹配的题目'; $('questions').append(empty); return; }
+      filtered.forEach(q => {
+        const card=document.createElement('article'); card.className='question';
+        const head=document.createElement('div'); head.className='question-head';
+        const number=document.createElement('span'); number.className='number'; number.textContent=(q.index+1)+'.';
+        const stem=document.createElement('h2'); stem.className='stem';
+        const score=document.createElement('span'); score.className='score'; score.textContent='（'+q.score+'分）';
+        stem.append(score,document.createTextNode(q.stem));
+        head.append(number,stem); card.append(head);
+        const options=document.createElement('div'); options.className='options';
+        q.options.forEach((label,i)=>{
+          const option=document.createElement('label'); option.className='option'+(answers[type][q.index]===i?' selected':'');
+          const radio=document.createElement('input'); radio.type='radio'; radio.name=type+'-'+q.index; radio.value=String(i); radio.checked=answers[type][q.index]===i;
+          const txt=document.createElement('span'); txt.textContent=label;
+          const check=document.createElement('span'); check.className='check'; check.textContent='✔'; check.setAttribute('aria-hidden','true');
+          option.append(radio,txt,check);
+          radio.addEventListener('change',()=>{answers[type][q.index]=i;render()}); options.append(option);
+        });
+        card.append(options); $('questions').append(card);
+      });
+    }
+    document.querySelectorAll('.side-tab').forEach(btn=>btn.addEventListener('click',()=>{
+      type=btn.dataset.type; document.querySelectorAll('.side-tab').forEach(b=>b.classList.toggle('active',b===btn)); $('search').value=''; render();
+    }));
+    document.querySelectorAll('.top-link').forEach(btn=>btn.addEventListener('click',()=>{
+      view=btn.dataset.view; document.querySelectorAll('.top-link').forEach(b=>b.classList.toggle('active',b===btn)); render();
+    }));
+    $('search').addEventListener('input',render);
+    $('search-button').addEventListener('click',render);
+    render();
+  </script>
+</body>
+</html>
