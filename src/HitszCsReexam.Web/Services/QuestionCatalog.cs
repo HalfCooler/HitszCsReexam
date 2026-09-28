@@ -7,7 +7,7 @@ namespace HitszCsReexam.Web.Services;
 public sealed record Question(int Id, string Type, int Number, int Score, string Stem, IReadOnlyList<string> Options,
     string StemHtml, IReadOnlyList<string> OptionHtml, string? Extra, string? ExtraBody, string? ExtraHtml,
     bool Multiple, IReadOnlyList<string> MultipleOptions, IReadOnlyList<string> MultipleOptionHtml,
-    string? Answer, string? Explain);
+    string? Answer, string? ExplainHtml);
 
 public sealed class QuestionCatalog
 {
@@ -52,7 +52,8 @@ public sealed class QuestionCatalog
                 result.Add(new Question(result.Count + 1, type, item.Id, score, item.Question, options,
                     Render(item.Question), options.Select(Render).ToArray(), item.Extra, item.ExtraBody,
                     RenderExtra(item.Extra, item.ExtraBody), item.Multiple, statements,
-                    statements.Select(Render).ToArray(), item.Answer, item.Explain));
+                    statements.Select(Render).ToArray(), item.Answer,
+                    string.IsNullOrWhiteSpace(item.Explain) ? null : Render(item.Explain)));
             }
         }
     }

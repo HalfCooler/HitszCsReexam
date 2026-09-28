@@ -33,3 +33,25 @@
 .option-list .option-item { display: flex; align-items: flex-start; min-width: 0; }
 .option-list .option-label { flex: none; }
 .option-list .markdown-content { min-width: 0; padding-top: 1px; }
+
+.question-answer { margin-top: 20px; padding-top: 17px; border-top: 1px solid #e7ece5; }
+.question-answer-heading { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; }
+.question-answer-heading span { color: #849589; font-size: 11px; font-weight: 700; }
+.question-answer-heading strong { color: #225a46; font-size: 14px; }
+.question-explanation { margin-top: 11px; color: #53695b; font-size: 12px; line-height: 1.8; overflow-wrap: anywhere; }
+.answer-control { position: fixed; z-index: 20; right: 26px; bottom: 26px; width: 174px; padding: 13px 15px; border: 1px solid #dce7dc; border-radius: 8px; background: #fff; box-shadow: 0 8px 28px #1c3e2c1c; }
+.answer-control-label { display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; }
+.answer-control-copy { display: grid; gap: 2px; }
+.answer-control-copy strong { color: #254b3c; font-size: 12px; }
+.answer-control-copy small { color: #90a195; font-size: 10px; }
+.answer-control input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.answer-switch-track { position: relative; flex: none; width: 38px; height: 22px; border-radius: 11px; background: #c4d0c4; transition: background .15s; }
+.answer-switch-track::after { position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; content: ""; transition: transform .15s; }
+.answer-control input:checked + .answer-switch-track { background: #28684e; }
+.answer-control input:checked + .answer-switch-track::after { transform: translateX(16px); }
+.answer-control input:focus-visible + .answer-switch-track { outline: 2px solid #28684e; outline-offset: 3px; }
+
+@media (max-width: 500px) {
+    .questions-page { padding-bottom: 70px; }
+    .answer-control { right: 16px; bottom: 16px; }
+}

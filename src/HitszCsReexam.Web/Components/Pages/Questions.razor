@@ -45,6 +45,16 @@
                         }
                     </div>
                 }
+                @if (showAnswers)
+                {
+                    <div class="question-answer">
+                        <div class="question-answer-heading"><span>参考答案</span><strong>@AnswerLabel(question)</strong></div>
+                        @if (question.ExplainHtml is not null)
+                        {
+                            <div class="question-explanation markdown-content">@((MarkupString)question.ExplainHtml)</div>
+                        }
+                    </div>
+                }
             </article>
         }
         @if (FilteredQuestions.Count == 0)
@@ -57,11 +67,19 @@
         <button class="load-more" @onclick="() => visibleCount += 12">继续查看 <span>↓</span></button>
     }
 </div>
+<aside class="answer-control" aria-label="答案显示设置">
+    <label class="answer-control-label">
+        <span class="answer-control-copy"><strong>显示答案</strong><small>@(showAnswers ? "已开启" : "已隐藏")</small></span>
+        <input type="checkbox" @bind="showAnswers" aria-label="显示答案" />
+        <span class="answer-switch-track" aria-hidden="true"></span>
+    </label>
+</aside>
 
 @code {
     private string searchText = "";
     private string selectedType = "全部";
     private int visibleCount = 12;
+    private bool showAnswers;
     private List<Question> FilteredQuestions => Catalog.Questions
         .Where(q => selectedType == "全部" || q.Type == selectedType)
         .Where(q => string.IsNullOrWhiteSpace(searchText) || q.Stem.Contains(searchText.Trim(), StringComparison.OrdinalIgnoreCase) ||
@@ -75,6 +93,9 @@
     private void ShowChoices() => SetFilter("单项选择");
     private void ShowJudgments() => SetFilter("判断");
     private string FilterClass(string type) => selectedType == type ? "filter-chip active" : "filter-chip";
+    private static string AnswerLabel(Question question) => string.IsNullOrWhiteSpace(question.Answer)
+        ? "暂无确定答案"
+        : question.Type == "单项选择" ? question.Answer.ToUpperInvariant() : question.Answer;
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await JS.InvokeVoidAsync("renderQuestionMath");
