@@ -1,45 +1,23 @@
 @page "/"
 @inject QuestionCatalog Catalog
 
-<PageTitle>总览 · HITSZ CS Reexam</PageTitle>
+<PageTitle>首页 · HITSZ CS Reexam</PageTitle>
 
 <div class="home-page">
-    <div class="eyebrow"><span class="eyebrow-line"></span> 预推免复试 · 计算机科学与技术</div>
-    <section class="hero">
-        <div class="hero-copy">
-            <div class="hero-overline">为下一次上场，认真准备。</div>
-            <h1>把准备，<br /><em>练成底气。</em></h1>
-            <p>浏览题库，找到知识盲点；一道一道练习，把会做的题真正做对。这里是属于你的哈工深 081200 复试备考空间。</p>
-            <div class="hero-actions">
-                <a class="button button-primary" href="/questions">进入题库 <span>↗</span></a>
-                <a class="button button-secondary" href="#study-path">了解复习路径 <span>↓</span></a>
-            </div>
-        </div>
-        <div class="hero-art" aria-hidden="true">
-            <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
-            <div class="art-grid"></div>
-            <div class="art-card art-card-top"><span>QUESTION BANK</span><strong>@Catalog.Questions.Count.ToString("D3")</strong><small>道已整理题目</small></div>
-            <div class="art-card art-card-bottom"><span>01 / EXPLORE</span><strong>从一道题开始</strong><small>慢慢积累，也能走得很远。</small></div>
-            <div class="art-star">✳</div>
-        </div>
-    </section>
-
-    <section class="overview-band" aria-label="题库概况">
-        <div><strong>@Catalog.Questions.Count</strong><span>道题目已整理</span></div>
-        <div><strong>@Catalog.ChoiceCount</strong><span>道单项选择</span></div>
-        <div><strong>@Catalog.JudgmentCount</strong><span>道判断题</span></div>
-        <div class="overview-message">每一道题，都值得弄明白。<span>↗</span></div>
-    </section>
-
-    <section class="path-section" id="study-path">
-        <div class="section-heading"><div><span class="section-kicker">YOUR STUDY PATH</span><h2>从这里开始</h2><p>按照自己的节奏，找到适合今天的练习方式。</p></div><span class="section-index">01 — 04</span></div>
-        <div class="path-grid">
-            <a class="path-card path-card-featured" href="/questions"><div class="path-top"><span class="path-number">01</span><span class="path-arrow">↗</span></div><div class="path-icon">▤</div><h3>浏览题库</h3><p>搜索关键词，按题型筛选，从感兴趣的题目开始。</p><span class="path-status available">现在可以使用</span></a>
-            <a class="path-card" href="/practice"><div class="path-top"><span class="path-number">02</span><span class="path-arrow">↗</span></div><div class="path-icon">◇</div><h3>随机刷题</h3><p>随机抽取题目，提交答案后查看结果与解析。</p><span class="path-status available">现在可以使用</span></a>
-            <a class="path-card" href="/mistakes"><div class="path-top"><span class="path-number">03</span><span class="path-arrow">↗</span></div><div class="path-icon">↺</div><h3>回顾错题</h3><p>把没做对的题留住，重新答对后移出错题本。</p><span class="path-status available">现在可以使用</span></a>
-            <a class="path-card" href="/exam"><div class="path-top"><span class="path-number">04</span><span class="path-arrow">↗</span></div><div class="path-icon">◷</div><h3>模拟考试</h3><p>限时完成一套试卷，交卷后查看成绩与逐题解析。</p><span class="path-status available">现在可以使用</span></a>
-        </div>
-    </section>
-
-    <section class="exam-note"><div><span class="section-kicker">EXAM AT A GLANCE</span><h2>关于这场机考</h2><p>根据目前整理的资料：考试时长 100 分钟，65 道单选题与 20 道判断题，满分 150 分。实际安排请以学校通知为准。</p></div><div class="exam-numbers"><div><strong>100<span>min</span></strong><small>考试时间</small></div><div><strong>150<span>pts</span></strong><small>试卷总分</small></div></div></section>
+    <h1>HITSZ 计算机复试题库</h1>
+    <p>题库共 @Catalog.Questions.Count 题：单项选择 @Catalog.ChoiceCount 题，判断 @Catalog.JudgmentCount 题。</p>
+    <h2>学习入口</h2>
+    <ul class="home-links">
+        <li><a href="/questions">浏览题库</a> — 搜索题目，查看参考答案与解析。</li>
+        <li><a href="/practice">随机练习</a> — 逐题作答，提交后查看解析。</li>
+        <li><a href="/mistakes">错题本</a> — 回顾答错的题，重新答对后自动移出。</li>
+        <li><a href="/exam">模拟考试</a> — 65 道单选、20 道判断，150 分，限时 100 分钟。</li>
+    </ul>
+    <h2>使用说明</h2>
+    <ul>
+        <li>练习和错题记录保存在当前浏览器，清除浏览器数据后会丢失。</li>
+        <li>模拟考试刷新后无法恢复，请一次完成。</li>
+        <li>参考答案为个人整理；无确定答案的题目不判分，也不进入模拟考试。</li>
+        <li>实际考试安排以学校通知为准。</li>
+    </ul>
 </div>

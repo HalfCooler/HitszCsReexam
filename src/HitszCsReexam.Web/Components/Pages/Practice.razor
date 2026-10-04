@@ -10,11 +10,7 @@
 <PageTitle>@(wrongMode ? "错题回顾" : "单题练习") · HITSZ CS Reexam</PageTitle>
 
 <div class="practice-page">
-    <div class="eyebrow"><span class="eyebrow-line"></span> @(wrongMode ? "REVIEW / 错题回顾" : "PRACTICE / 单题练习")</div>
-    <div class="page-heading">
-        <div><h1>@(wrongMode ? "再做一遍，直到会做" : "一道一道，认真练习")</h1><p>选择答案后提交，即可查看结果与解析。答错的题会留在本机错题本。</p></div>
-        <a class="back-link" href="/questions">前往题库 →</a>
-    </div>
+    <h1>@(wrongMode ? "错题本" : "随机练习")</h1>
 
     @if (!Store.Loaded)
     {
@@ -26,10 +22,8 @@
         {
             <div class="practice-notice" role="status">浏览器未允许保存本机记录；本次练习仍可继续，刷新后记录可能丢失。</div>
         }
-        <div class="practice-toolbar">
-            <a class="@(wrongMode ? "practice-tab" : "practice-tab active")" href="/practice">随机刷题</a>
-            <a class="@(wrongMode ? "practice-tab active" : "practice-tab")" href="/mistakes">错题回顾 <span>@Store.WrongCount</span></a>
-            <span class="practice-progress">累计作答 @Store.AttemptCount 次 · 答对 @Store.CorrectCount 次</span>
+        <div class="toolbar practice-toolbar">
+            <span>累计作答 @Store.AttemptCount 次 · 答对 @Store.CorrectCount 次 · 待复习 @Store.WrongCount 题</span>
         </div>
 
         @if (current is null)
@@ -37,13 +31,13 @@
             <div class="practice-empty">
                 <strong>@(wrongMode ? "错题本目前是空的" : "没有可练习的题目")</strong>
                 <p>@(wrongMode ? "练习中答错的题会出现在这里；重新答对后自动移出。" : "可以先去题库浏览。")</p>
-                <a class="button button-primary" href="@(wrongMode ? "/practice" : "/questions")">@(wrongMode ? "开始随机刷题" : "进入题库") <span>↗</span></a>
+                <a href="@(wrongMode ? "/practice" : "/questions")">@(wrongMode ? "开始随机练习" : "进入题库")</a>
             </div>
         }
         else
         {
             <article class="question-card practice-question" @key="current.Key">
-                <div class="question-meta"><span class="question-type">@current.Type</span><span>题号 @current.Number</span><span>@current.Score 分</span>@if (Store.NeedsReview(current)) { <span class="review-marker">待复习</span> }</div>
+                <div class="question-meta"><span>@current.Type · 题号 @current.Number</span>@if (Store.NeedsReview(current)) { <span class="review-marker">待复习</span> }</div>
                 <div class="question-stem markdown-content">@((MarkupString)current.StemHtml)</div>
                 @if (current.ExtraHtml is not null)
                 {
@@ -62,9 +56,11 @@
                     @for (var i = 0; i < current.Options.Count; i++)
                     {
                         var value = current.Type == "判断" ? current.Options[i] : ((char)('A' + i)).ToString();
-                        <button type="button" class="@OptionClass(value)" disabled="@submitted" aria-pressed="@(selected == value)" @onclick="() => selected = value">
-                            <span class="option-label">@value</span><span class="markdown-content">@((MarkupString)current.OptionHtml[i])</span>
-                        </button>
+                        var optionId = $"{current.Key}-option-{i}";
+                        <div class="@OptionClass(value)">
+                            <input type="radio" name="practice-answer" id="@optionId" value="@value" checked="@(selected == value)" disabled="@submitted" @onchange="() => selected = value" />
+                            <label for="@optionId">@if (submitted && current.Type != "判断") { <span class="option-label">@value</span> }<span class="markdown-content">@((MarkupString)current.OptionHtml[i])</span></label>
+                        </div>
                     }
                 </div>
                 @if (submitted)
@@ -89,13 +85,12 @@
                 <div class="practice-actions">
                     @if (!submitted)
                     {
-                        <button type="button" class="button button-primary" disabled="@(selected is null)" @onclick="SubmitAsync">提交答案 <span>✓</span></button>
+                        <button type="button" class="button-primary" disabled="@(selected is null)" @onclick="SubmitAsync">提交答案</button>
                         <button type="button" class="practice-text-button" @onclick="NextQuestion">跳过此题</button>
                     }
                     else
                     {
-                        <button type="button" class="button button-primary" @onclick="NextQuestion">@(wrongMode ? "继续回顾" : "下一题") <span>→</span></button>
-                        <a class="practice-text-button" href="/questions">返回题库</a>
+                        <button type="button" class="button-primary" @onclick="NextQuestion">@(wrongMode ? "继续回顾" : "下一题")</button>
                     }
                 </div>
             </article>

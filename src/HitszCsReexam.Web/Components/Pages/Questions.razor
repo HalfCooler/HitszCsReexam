@@ -6,22 +6,24 @@
 <PageTitle>题库浏览 · HITSZ CS Reexam</PageTitle>
 
 <div class="questions-page">
-    <div class="eyebrow"><span class="eyebrow-line"></span> QUESTION BANK / 题库浏览</div>
-    <div class="page-heading"><div><h1>今天，从哪道题开始？</h1><p>当前收录 @Catalog.Questions.Count 道题目。输入关键词，或按题型缩小范围。</p></div><a href="/" class="back-link">← 返回总览</a></div>
-    <div class="search-panel">
-        <div class="search-row"><span class="search-icon">⌕</span><input aria-label="搜索题目" placeholder="搜索题干或选项中的关键词" @bind="searchText" @bind:event="oninput" /><span class="search-hint">实时搜索</span></div>
-        <div class="filter-row" aria-label="按题型筛选">
-            <button type="button" class="@FilterClass("全部")" @onclick="ShowAll">全部 <span>@Catalog.Questions.Count</span></button>
-            <button type="button" class="@FilterClass("单项选择")" @onclick="ShowChoices">单项选择 <span>@Catalog.ChoiceCount</span></button>
-            <button type="button" class="@FilterClass("判断")" @onclick="ShowJudgments">判断题 <span>@Catalog.JudgmentCount</span></button>
-        </div>
+    <h1>题库</h1>
+    <div class="toolbar">
+        <label class="search-field">搜索 <input type="search" placeholder="题干或选项关键词" @bind="searchText" @bind:event="oninput" /></label>
+        <label>题型
+            <select @bind="selectedType" @bind:after="ResetVisibleCount">
+                <option value="全部">全部 (@Catalog.Questions.Count)</option>
+                <option value="单项选择">单项选择 (@Catalog.ChoiceCount)</option>
+                <option value="判断">判断 (@Catalog.JudgmentCount)</option>
+            </select>
+        </label>
+        <label><input type="checkbox" @bind="showAnswers" /> 显示答案与解析</label>
     </div>
-    <div class="results-heading"><span>找到 <strong>@FilteredQuestions.Count</strong> 道题目</span><span>题库持续整理中</span></div>
+    <p class="results-heading">找到 @FilteredQuestions.Count 道题目</p>
     <div class="question-list">
         @foreach (var question in FilteredQuestions.Take(visibleCount))
         {
             <article class="question-card">
-                <div class="question-meta"><span class="question-type">@question.Type</span><span>题库序号 @question.Id.ToString("D3")</span><span>@question.Score 分</span></div>
+                <div class="question-meta"><span>@question.Type · 题号 @question.Number</span><a href="@($"/practice/{question.Key}")">练习此题</a></div>
                 <div class="question-stem markdown-content">@((MarkupString)question.StemHtml)</div>
                 @if (question.ExtraHtml is not null)
                 {
@@ -41,7 +43,7 @@
                     <div class="option-list">
                         @for (var i = 0; i < question.Options.Count; i++)
                         {
-                            <div class="option-item"><span class="option-label">@((char)('A' + i))</span><div class="markdown-content">@((MarkupString)question.OptionHtml[i])</div></div>
+                            <div class="option-item">@if (question.Type != "判断") { <span class="option-label">@((char)('A' + i))</span> }<div class="markdown-content">@((MarkupString)question.OptionHtml[i])</div></div>
                         }
                     </div>
                 }
@@ -55,7 +57,6 @@
                         }
                     </div>
                 }
-                <div class="question-card-actions"><a href="@($"/practice/{question.Key}")">练习这道题 <span>↗</span></a></div>
             </article>
         }
         @if (FilteredQuestions.Count == 0)
@@ -65,16 +66,9 @@
     </div>
     @if (FilteredQuestions.Count > visibleCount)
     {
-        <button class="load-more" @onclick="() => visibleCount += 12">继续查看 <span>↓</span></button>
+        <button class="load-more" @onclick="() => visibleCount += 12">继续查看</button>
     }
 </div>
-<aside class="answer-control" aria-label="答案显示设置">
-    <label class="answer-control-label">
-        <span class="answer-control-copy"><strong>显示答案</strong><small>@(showAnswers ? "已开启" : "已隐藏")</small></span>
-        <input type="checkbox" @bind="showAnswers" aria-label="显示答案" />
-        <span class="answer-switch-track" aria-hidden="true"></span>
-    </label>
-</aside>
 
 @code {
     private string searchText = "";
@@ -89,11 +83,7 @@
             q.Options.Any(o => o.Contains(searchText.Trim(), StringComparison.OrdinalIgnoreCase)))
         .ToList();
 
-    private void SetFilter(string type) { selectedType = type; visibleCount = 12; }
-    private void ShowAll() => SetFilter("全部");
-    private void ShowChoices() => SetFilter("单项选择");
-    private void ShowJudgments() => SetFilter("判断");
-    private string FilterClass(string type) => selectedType == type ? "filter-chip active" : "filter-chip";
+    private void ResetVisibleCount() => visibleCount = 12;
     private static string AnswerLabel(Question question) => string.IsNullOrWhiteSpace(question.Answer)
         ? "暂无确定答案"
         : question.Type == "单项选择" ? question.Answer.ToUpperInvariant() : question.Answer;
