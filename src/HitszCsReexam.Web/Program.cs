@@ -20,6 +20,9 @@ app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages:
 app.UseAntiforgery();
 
 app.MapStaticAssets();
+app.MapGet("/report/manual.csv", () => Results.File(
+    Path.Combine(AppContext.BaseDirectory, "Data", "manual.csv"),
+    "text/csv; charset=utf-8", "manual.csv"));
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 

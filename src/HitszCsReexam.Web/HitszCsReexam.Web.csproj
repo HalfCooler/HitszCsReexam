@@ -9,10 +9,13 @@
 
   <ItemGroup>
     <Content Include="..\data\answers\answer.json" Link="Data\answer.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="..\data\manual.csv" Link="Data\manual.csv" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="manual\index.md" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Markdig" Version="1.4.0" />
+    <PackageReference Include="TinyPinyin" Version="1.1.0" />
   </ItemGroup>
 
 </Project>

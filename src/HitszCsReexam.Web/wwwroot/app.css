@@ -29,6 +29,7 @@ ul, ol { margin: .5rem 0 1rem; padding-left: 1.5rem; }
 .main-content { padding: 1.25rem 0 2rem; }
 .app-footer { border-top: 1px solid #aaa; padding: .65rem 0; color: #555; font-size: .8125rem; }
 .home-page { max-width: 52rem; }
+.report-page { max-width: 58rem; overflow-wrap: anywhere; }
 .home-links li { margin-bottom: .5rem; }
 .page-heading { margin-bottom: 1rem; }
 .page-heading p { color: #555; font-size: .875rem; }

@@ -43,6 +43,8 @@ HITSZ 计算机科学与技术学院在可观测的某些年前筹备了一套�
 | [`src/data/answers/answer.json`](src/data/answers/answer.json) | 应用读取的题库，包含题目、附加内容、复合选择、答案与解析 |
 | [`src/data/sources/`](src/data/sources/) | 试题 PDF 资料 |
 | [`src/HitszCsReexam.Web/`](src/HitszCsReexam.Web/) | .NET 10 Blazor 主界面、题库浏览、练习、错题回顾与模拟考试 |
+| [`src/HitszCsReexam.Web/manual/`](src/HitszCsReexam.Web/manual/) | 历年试题分析报告与生成脚本，页面底部“报告”链接可查看 |
+| [`src/data/manual.csv`](src/data/manual.csv) | 历年试题与题库题号的人工整理映射 |
 | [`todo_simulate_exam.html`](todo_simulate_exam.html) | 模拟考试界面的旧预览，当前主界面未采用 |
 
 现有答案解析并非考试平台公布的官方答案。部分题目存在题面缺失或口径歧义，使用时请结合解析中的说明自行核对。

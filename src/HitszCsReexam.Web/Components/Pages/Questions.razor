@@ -8,9 +8,9 @@
 <div class="questions-page">
     <h1>题库</h1>
     <div class="toolbar">
-        <label class="search-field">搜索 <input type="search" placeholder="题干或选项关键词" @bind="searchText" @bind:event="oninput" /></label>
+        <label class="search-field">搜索 <input type="search" placeholder="原文 / 全拼 / 首字母" aria-describedby="question-search-help" @bind="searchText" @bind:event="oninput" @bind:after="RefreshQuestions" /></label>
         <label>题型
-            <select @bind="selectedType" @bind:after="ResetVisibleCount">
+            <select @bind="selectedType" @bind:after="RefreshQuestions">
                 <option value="全部">全部 (@Catalog.Questions.Count)</option>
                 <option value="单项选择">单项选择 (@Catalog.ChoiceCount)</option>
                 <option value="判断">判断 (@Catalog.JudgmentCount)</option>
@@ -18,6 +18,7 @@
         </label>
         <label><input type="checkbox" @bind="showAnswers" /> 显示答案与解析</label>
     </div>
+    <p id="question-search-help">支持原文、全拼和拼音首字母；多个关键词用空格分隔，需全部命中，可分别出现在题干或选项中。</p>
     <p class="results-heading">找到 @FilteredQuestions.Count 道题目</p>
     <div class="question-list">
         @foreach (var question in FilteredQuestions.Take(visibleCount))
@@ -75,15 +76,15 @@
     private string selectedType = "全部";
     private int visibleCount = 12;
     private bool showAnswers;
-    private List<Question> FilteredQuestions => Catalog.Questions
-        .Where(q => selectedType == "全部" || q.Type == selectedType)
-        .Where(q => string.IsNullOrWhiteSpace(searchText) || q.Stem.Contains(searchText.Trim(), StringComparison.OrdinalIgnoreCase) ||
-            (q.ExtraBody?.Contains(searchText.Trim(), StringComparison.OrdinalIgnoreCase) ?? false) ||
-            q.MultipleOptions.Any(o => o.Contains(searchText.Trim(), StringComparison.OrdinalIgnoreCase)) ||
-            q.Options.Any(o => o.Contains(searchText.Trim(), StringComparison.OrdinalIgnoreCase)))
-        .ToList();
+    private IReadOnlyList<Question> FilteredQuestions = [];
 
-    private void ResetVisibleCount() => visibleCount = 12;
+    protected override void OnInitialized() => RefreshQuestions();
+
+    private void RefreshQuestions()
+    {
+        visibleCount = 12;
+        FilteredQuestions = Catalog.Search(searchText, selectedType);
+    }
     private static string AnswerLabel(Question question) => string.IsNullOrWhiteSpace(question.Answer)
         ? "暂无确定答案"
         : question.Type == "单项选择" ? question.Answer.ToUpperInvariant() : question.Answer;

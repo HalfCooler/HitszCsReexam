@@ -1,0 +1,32 @@
+@page "/report"
+@rendermode InteractiveServer
+@using Markdig
+@inject IJSRuntime JS
+
+<PageTitle>历年试题分析 · HITSZ CS Reexam</PageTitle>
+
+<article class="report-page markdown-content">
+    @((MarkupString)reportHtml)
+</article>
+
+@code {
+    private string reportHtml = "";
+
+    protected override void OnInitialized()
+    {
+        var markdown = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "manual", "index.md"));
+        var pipeline = new MarkdownPipelineBuilder()
+            .UseAdvancedExtensions()
+            .UseMathematics()
+            .DisableHtml()
+            .Build();
+        reportHtml = Markdown.ToHtml(
+            markdown.Replace("(../../data/manual.csv)", "(/report/manual.csv)", StringComparison.Ordinal), pipeline);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+            await JS.InvokeVoidAsync("renderQuestionMath");
+    }
+}

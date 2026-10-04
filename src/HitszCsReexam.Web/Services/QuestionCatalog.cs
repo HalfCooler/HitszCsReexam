@@ -21,15 +21,20 @@ public sealed class QuestionCatalog
         .DisableHtml()
         .Build();
     private readonly Lazy<IReadOnlyList<Question>> _questions;
+    private readonly Lazy<QuestionSearchIndex> _searchIndex;
 
     public QuestionCatalog()
     {
         _questions = new Lazy<IReadOnlyList<Question>>(() => Load(Path.Combine(AppContext.BaseDirectory, "Data", "answer.json")));
+        _searchIndex = new Lazy<QuestionSearchIndex>(() => new QuestionSearchIndex(Questions));
     }
 
     public IReadOnlyList<Question> Questions => _questions.Value;
     public int ChoiceCount => Questions.Count(q => q.Type == "单项选择");
     public int JudgmentCount => Questions.Count(q => q.Type == "判断");
+
+    public IReadOnlyList<Question> Search(string searchText, string type = "全部") =>
+        _searchIndex.Value.Search(searchText, type);
 
     private static IReadOnlyList<Question> Load(string path)
     {
