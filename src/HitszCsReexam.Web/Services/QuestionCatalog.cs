@@ -7,7 +7,11 @@ namespace HitszCsReexam.Web.Services;
 public sealed record Question(int Id, string Type, int Number, int Score, string Stem, IReadOnlyList<string> Options,
     string StemHtml, IReadOnlyList<string> OptionHtml, string? Extra, string? ExtraBody, string? ExtraHtml,
     bool Multiple, IReadOnlyList<string> MultipleOptions, IReadOnlyList<string> MultipleOptionHtml,
-    string? Answer, string? ExplainHtml);
+    string? Answer, string? ExplainHtml)
+{
+    public string Key => $"{(Type == "判断" ? "judgement" : "single-choice")}-{Number}";
+    public bool CanScore => !string.IsNullOrWhiteSpace(Answer);
+}
 
 public sealed class QuestionCatalog
 {
@@ -36,6 +40,8 @@ public sealed class QuestionCatalog
 
         AddQuestions(bank.SingleChoice, "单项选择", 2);
         AddQuestions(bank.Judgement, "判断", 1);
+        if (result.Select(q => q.Key).Distinct(StringComparer.Ordinal).Count() != result.Count)
+            throw new JsonException("题库中存在重复的题型与题号。");
         return result;
 
         void AddQuestions(IEnumerable<AnswerQuestion> source, string type, int score)

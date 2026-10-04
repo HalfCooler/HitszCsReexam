@@ -1,0 +1,258 @@
+@page "/exam"
+@rendermode InteractiveServer
+@implements IAsyncDisposable
+@inject QuestionCatalog Catalog
+@inject PracticeStore Store
+@inject IJSRuntime JS
+
+<PageTitle>模拟考试 · HITSZ CS Reexam</PageTitle>
+
+<div class="exam-page">
+    <div class="eyebrow"><span class="eyebrow-line"></span> MOCK EXAM / 模拟考试</div>
+    <div class="page-heading"><div><h1>在规定时间里，检验准备的成果</h1><p>65 道单选题、20 道判断题，共 150 分，限时 100 分钟。</p></div><a class="back-link" href="/practice">先去练习 →</a></div>
+
+    @if (!Store.Loaded)
+    {
+        <div class="practice-empty">正在准备题库与本机记录…</div>
+    }
+    else if (!started)
+    {
+        <section class="exam-intro">
+            <h2>开始前，请留意</h2>
+            <ul>
+                <li>试卷从有确定参考答案的题目中随机抽取，题序固定到本次交卷。</li>
+                <li>交卷或时间结束后显示成绩和解析；未作答的题计 0 分。</li>
+                <li>已作答的错题会加入本机错题本。刷新页面会结束本次考试，请一次完成。</li>
+            </ul>
+            <button type="button" class="button button-primary" @onclick="Start">开始模拟考试 <span>→</span></button>
+        </section>
+    }
+    else
+    {
+        <div class="exam-dashboard">
+            <div><strong>@(submitted ? $"{earnedScore} / 150 分" : RemainingText)</strong><span>@(submitted ? "本次成绩" : "剩余时间")</span></div>
+            <div><strong>@answers.Count / @paper.Count</strong><span>已作答</span></div>
+            @if (submitted)
+            {
+                <div><strong>@CorrectCount</strong><span>答对题数</span></div>
+            }
+        </div>
+        @if (!Store.StorageAvailable)
+        {
+            <div class="practice-notice" role="status">浏览器未允许保存本机错题记录；本次成绩仍可在当前页面查看。</div>
+        }
+        @if (submitted)
+        {
+            <p class="exam-result-note" role="status">考试已结束。选择题号可查看你的作答、参考答案和解析。</p>
+        }
+        <div class="exam-layout">
+            <section class="exam-main">
+                <div class="exam-question-top"><span>第 @(currentIndex + 1) 题 / 共 @paper.Count 题</span><span>@(currentIndex < 65 ? "单项选择" : "判断题") · @Current.Score 分</span></div>
+                <article class="question-card exam-question" @key="Current.Key">
+                    <div class="question-meta"><span class="question-type">@Current.Type</span><span>题号 @Current.Number</span></div>
+                    <div class="question-stem markdown-content">@((MarkupString)Current.StemHtml)</div>
+                    @if (Current.ExtraHtml is not null)
+                    {
+                        <div class="question-extra markdown-content">@((MarkupString)Current.ExtraHtml)</div>
+                    }
+                    @if (Current.Multiple)
+                    {
+                        <ol class="multiple-options">
+                            @foreach (var statement in Current.MultipleOptionHtml)
+                            {
+                                <li class="markdown-content">@((MarkupString)statement)</li>
+                            }
+                        </ol>
+                    }
+                    <div class="practice-options" role="group" aria-label="选择答案">
+                        @for (var i = 0; i < Current.Options.Count; i++)
+                        {
+                            var value = Current.Type == "判断" ? Current.Options[i] : ((char)('A' + i)).ToString();
+                            <button type="button" class="@OptionClass(value)" disabled="@submitted" aria-pressed="@(SelectedAnswer == value)" @onclick="() => Choose(value)">
+                                <span class="option-label">@value</span><span class="markdown-content">@((MarkupString)Current.OptionHtml[i])</span>
+                            </button>
+                        }
+                    </div>
+                    @if (submitted)
+                    {
+                        <div class="practice-result">
+                            <strong>@CurrentResult</strong><span>参考答案：@Current.Answer?.ToUpperInvariant()</span>
+                            @if (Current.ExplainHtml is not null)
+                            {
+                                <div class="question-explanation markdown-content">@((MarkupString)Current.ExplainHtml)</div>
+                            }
+                        </div>
+                    }
+                </article>
+                <div class="exam-step-actions">
+                    <button type="button" class="practice-text-button" disabled="@(currentIndex == 0)" @onclick="() => GoTo(currentIndex - 1)">← 上一题</button>
+                    <button type="button" class="button button-primary" disabled="@(currentIndex == paper.Count - 1)" @onclick="() => GoTo(currentIndex + 1)">下一题 <span>→</span></button>
+                </div>
+            </section>
+            <aside class="exam-sidebar" aria-label="试题导航">
+                <div class="exam-sidebar-heading"><strong>答题卡</strong><span>@answers.Count / @paper.Count</span></div>
+                <p>点击题号直接跳转。@(submitted ? "绿色为答对，红色为答错。" : "深色为已作答。")</p>
+                <div class="exam-number-grid">
+                    @for (var i = 0; i < paper.Count; i++)
+                    {
+                        var index = i;
+                        <button type="button" class="@NumberClass(index)" aria-label="第 @(index + 1) 题" aria-current="@(index == currentIndex ? "step" : null)" @onclick="() => GoTo(index)">@(index + 1)</button>
+                    }
+                </div>
+                @if (!submitted)
+                {
+                    <button type="button" class="exam-submit" @onclick="() => confirmSubmit = true">交卷并查看结果</button>
+                    @if (confirmSubmit)
+                    {
+                        <div class="exam-confirm" role="alertdialog" aria-label="确认交卷">
+                            <p>还有 @(paper.Count - answers.Count) 道题未作答。确认交卷？</p>
+                            <button type="button" @onclick="SubmitAsync">确认交卷</button>
+                            <button type="button" @onclick="() => confirmSubmit = false">继续作答</button>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <a class="exam-review-link" href="/mistakes">前往错题本 →</a>
+                }
+            </aside>
+        </div>
+    }
+</div>
+
+@code {
+    private const int DurationMinutes = 100;
+    private readonly List<Question> paper = [];
+    private readonly Dictionary<string, string> answers = [];
+    private CancellationTokenSource? timerCancellation;
+    private DateTimeOffset endsAt;
+    private bool started;
+    private bool submitted;
+    private bool confirmSubmit;
+    private int currentIndex;
+    private int earnedScore;
+    private string? lastRenderedQuestion;
+
+    private Question Current => paper[currentIndex];
+    private string? SelectedAnswer => answers.GetValueOrDefault(Current.Key);
+    private int CorrectCount => paper.Count(q => answers.TryGetValue(q.Key, out var answer) && IsCorrect(q, answer));
+    private string CurrentResult => SelectedAnswer is null ? "未作答" : IsCorrect(Current, SelectedAnswer) ? "答对了" : "答错了";
+    private string RemainingText
+    {
+        get
+        {
+            var remaining = endsAt - DateTimeOffset.UtcNow;
+            if (remaining < TimeSpan.Zero) remaining = TimeSpan.Zero;
+            return $"{(int)remaining.TotalMinutes:D2}:{remaining.Seconds:D2}";
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Store.LoadAsync();
+            StateHasChanged();
+        }
+        if (started)
+        {
+            var renderKey = $"{Current.Key}-{submitted}";
+            if (renderKey != lastRenderedQuestion)
+            {
+                await JS.InvokeVoidAsync("renderQuestionMath");
+                lastRenderedQuestion = renderKey;
+            }
+        }
+    }
+
+    private void Start()
+    {
+        paper.Clear();
+        paper.AddRange(Catalog.Questions.Where(q => q.Type == "单项选择" && q.CanScore).OrderBy(_ => Random.Shared.Next()).Take(65));
+        paper.AddRange(Catalog.Questions.Where(q => q.Type == "判断" && q.CanScore).OrderBy(_ => Random.Shared.Next()).Take(20));
+        if (paper.Count != 85) throw new InvalidOperationException("题库中有确定答案的题目不足以组卷。");
+        answers.Clear();
+        currentIndex = 0;
+        earnedScore = 0;
+        submitted = false;
+        started = true;
+        endsAt = DateTimeOffset.UtcNow.AddMinutes(DurationMinutes);
+        timerCancellation = new CancellationTokenSource();
+        _ = TickAsync(timerCancellation.Token);
+    }
+
+    private async Task TickAsync(CancellationToken cancellationToken)
+    {
+        try
+        {
+            using var timer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+            while (await timer.WaitForNextTickAsync(cancellationToken))
+            {
+                if (DateTimeOffset.UtcNow >= endsAt)
+                {
+                    await InvokeAsync(SubmitAsync);
+                    break;
+                }
+                await InvokeAsync(StateHasChanged);
+            }
+        }
+        catch (OperationCanceledException) { }
+    }
+
+    private void Choose(string value)
+    {
+        if (!submitted) answers[Current.Key] = value;
+    }
+
+    private void GoTo(int index)
+    {
+        if (index >= 0 && index < paper.Count)
+        {
+            currentIndex = index;
+            confirmSubmit = false;
+        }
+    }
+
+    private async Task SubmitAsync()
+    {
+        if (submitted) return;
+        submitted = true;
+        confirmSubmit = false;
+        timerCancellation?.Cancel();
+        earnedScore = paper.Where(q => answers.TryGetValue(q.Key, out var answer) && IsCorrect(q, answer)).Sum(q => q.Score);
+        await Store.RecordManyAsync(paper.Where(q => answers.ContainsKey(q.Key))
+            .Select(q => (q, IsCorrect(q, answers[q.Key]))));
+        StateHasChanged();
+    }
+
+    private string OptionClass(string value)
+    {
+        var classes = "practice-option";
+        if (SelectedAnswer == value) classes += " selected";
+        if (submitted)
+        {
+            if (IsCorrect(Current, value)) classes += " correct";
+            else if (SelectedAnswer == value) classes += " incorrect";
+        }
+        return classes;
+    }
+
+    private string NumberClass(int index)
+    {
+        var classes = "exam-number";
+        if (index == currentIndex) classes += " current";
+        if (answers.TryGetValue(paper[index].Key, out var answer))
+            classes += submitted ? (IsCorrect(paper[index], answer) ? " correct" : " incorrect") : " answered";
+        return classes;
+    }
+
+    private static bool IsCorrect(Question question, string answer) =>
+        string.Equals(question.Answer, answer, StringComparison.OrdinalIgnoreCase);
+
+    public ValueTask DisposeAsync()
+    {
+        timerCancellation?.Cancel();
+        timerCancellation?.Dispose();
+        return ValueTask.CompletedTask;
+    }
+}

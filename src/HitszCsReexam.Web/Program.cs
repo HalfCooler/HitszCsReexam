@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddSingleton<QuestionCatalog>();
+builder.Services.AddScoped<PracticeStore>();
 
 var app = builder.Build();
 

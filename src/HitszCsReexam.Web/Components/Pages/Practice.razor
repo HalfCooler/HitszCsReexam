@@ -1,0 +1,187 @@
+@page "/practice"
+@page "/practice/{QuestionKey}"
+@page "/mistakes"
+@rendermode InteractiveServer
+@inject QuestionCatalog Catalog
+@inject PracticeStore Store
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+
+<PageTitle>@(wrongMode ? "错题回顾" : "单题练习") · HITSZ CS Reexam</PageTitle>
+
+<div class="practice-page">
+    <div class="eyebrow"><span class="eyebrow-line"></span> @(wrongMode ? "REVIEW / 错题回顾" : "PRACTICE / 单题练习")</div>
+    <div class="page-heading">
+        <div><h1>@(wrongMode ? "再做一遍，直到会做" : "一道一道，认真练习")</h1><p>选择答案后提交，即可查看结果与解析。答错的题会留在本机错题本。</p></div>
+        <a class="back-link" href="/questions">前往题库 →</a>
+    </div>
+
+    @if (!Store.Loaded)
+    {
+        <div class="practice-empty">正在读取本机练习记录…</div>
+    }
+    else
+    {
+        @if (!Store.StorageAvailable)
+        {
+            <div class="practice-notice" role="status">浏览器未允许保存本机记录；本次练习仍可继续，刷新后记录可能丢失。</div>
+        }
+        <div class="practice-toolbar">
+            <a class="@(wrongMode ? "practice-tab" : "practice-tab active")" href="/practice">随机刷题</a>
+            <a class="@(wrongMode ? "practice-tab active" : "practice-tab")" href="/mistakes">错题回顾 <span>@Store.WrongCount</span></a>
+            <span class="practice-progress">累计作答 @Store.AttemptCount 次 · 答对 @Store.CorrectCount 次</span>
+        </div>
+
+        @if (current is null)
+        {
+            <div class="practice-empty">
+                <strong>@(wrongMode ? "错题本目前是空的" : "没有可练习的题目")</strong>
+                <p>@(wrongMode ? "练习中答错的题会出现在这里；重新答对后自动移出。" : "可以先去题库浏览。")</p>
+                <a class="button button-primary" href="@(wrongMode ? "/practice" : "/questions")">@(wrongMode ? "开始随机刷题" : "进入题库") <span>↗</span></a>
+            </div>
+        }
+        else
+        {
+            <article class="question-card practice-question" @key="current.Key">
+                <div class="question-meta"><span class="question-type">@current.Type</span><span>题号 @current.Number</span><span>@current.Score 分</span>@if (Store.NeedsReview(current)) { <span class="review-marker">待复习</span> }</div>
+                <div class="question-stem markdown-content">@((MarkupString)current.StemHtml)</div>
+                @if (current.ExtraHtml is not null)
+                {
+                    <div class="question-extra markdown-content">@((MarkupString)current.ExtraHtml)</div>
+                }
+                @if (current.Multiple)
+                {
+                    <ol class="multiple-options">
+                        @foreach (var statement in current.MultipleOptionHtml)
+                        {
+                            <li class="markdown-content">@((MarkupString)statement)</li>
+                        }
+                    </ol>
+                }
+                <div class="practice-options" role="group" aria-label="选择答案">
+                    @for (var i = 0; i < current.Options.Count; i++)
+                    {
+                        var value = current.Type == "判断" ? current.Options[i] : ((char)('A' + i)).ToString();
+                        <button type="button" class="@OptionClass(value)" disabled="@submitted" aria-pressed="@(selected == value)" @onclick="() => selected = value">
+                            <span class="option-label">@value</span><span class="markdown-content">@((MarkupString)current.OptionHtml[i])</span>
+                        </button>
+                    }
+                </div>
+                @if (submitted)
+                {
+                    <div class="practice-result" role="status">
+                        <strong>@ResultTitle()</strong>
+                        <span>参考答案：@(current.CanScore ? (current.Type == "判断" ? current.Answer : current.Answer!.ToUpperInvariant()) : "暂无确定结论")</span>
+                        @if (current.ExplainHtml is not null)
+                        {
+                            <div class="question-explanation markdown-content">@((MarkupString)current.ExplainHtml)</div>
+                        }
+                        else
+                        {
+                            <p class="practice-no-explain">这道题暂未整理解析。</p>
+                        }
+                    </div>
+                }
+                else if (!current.CanScore)
+                {
+                    <p class="practice-uncertain">这道题尚无确定参考答案，可作答并查看解析，但不计入练习记录。</p>
+                }
+                <div class="practice-actions">
+                    @if (!submitted)
+                    {
+                        <button type="button" class="button button-primary" disabled="@(selected is null)" @onclick="SubmitAsync">提交答案 <span>✓</span></button>
+                        <button type="button" class="practice-text-button" @onclick="NextQuestion">跳过此题</button>
+                    }
+                    else
+                    {
+                        <button type="button" class="button button-primary" @onclick="NextQuestion">@(wrongMode ? "继续回顾" : "下一题") <span>→</span></button>
+                        <a class="practice-text-button" href="/questions">返回题库</a>
+                    }
+                </div>
+            </article>
+        }
+    }
+</div>
+
+@code {
+    [Parameter] public string? QuestionKey { get; set; }
+    private bool wrongMode;
+    private Question? current;
+    private string? selected;
+    private bool submitted;
+    private readonly List<Question> deck = [];
+
+    protected override void OnParametersSet()
+    {
+        wrongMode = Navigation.ToBaseRelativePath(Navigation.Uri).Split('?')[0].TrimEnd('/') == "mistakes";
+        if (Store.Loaded) ChooseInitial();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Store.LoadAsync();
+            ChooseInitial();
+            StateHasChanged();
+        }
+        await JS.InvokeVoidAsync("renderQuestionMath");
+    }
+
+    private void ChooseInitial()
+    {
+        current = wrongMode
+            ? Catalog.Questions.FirstOrDefault(Store.NeedsReview)
+            : Catalog.Questions.FirstOrDefault(q => q.Key == QuestionKey) ?? DrawRandom();
+        selected = null;
+        submitted = false;
+    }
+
+    private Question? DrawRandom()
+    {
+        if (deck.Count == 0)
+        {
+            deck.AddRange(Catalog.Questions.OrderBy(_ => Random.Shared.Next()));
+            if (deck.Count > 1 && deck[^1] == current)
+                (deck[0], deck[^1]) = (deck[^1], deck[0]);
+        }
+        if (deck.Count == 0) return null;
+        var question = deck[^1];
+        deck.RemoveAt(deck.Count - 1);
+        return question;
+    }
+
+    private void NextQuestion()
+    {
+        current = wrongMode
+            ? Catalog.Questions.FirstOrDefault(q => Store.NeedsReview(q) && q.Key != current?.Key)
+                ?? Catalog.Questions.FirstOrDefault(Store.NeedsReview)
+            : DrawRandom();
+        selected = null;
+        submitted = false;
+    }
+
+    private async Task SubmitAsync()
+    {
+        if (current is null || selected is null || submitted) return;
+        submitted = true;
+        if (current.CanScore)
+            await Store.RecordAsync(current, string.Equals(selected, current.Answer, StringComparison.OrdinalIgnoreCase));
+    }
+
+    private string ResultTitle() => !current!.CanScore ? "已查看：本题暂不判分"
+        : string.Equals(selected, current.Answer, StringComparison.OrdinalIgnoreCase) ? "答对了" : "这次没有答对";
+
+    private string OptionClass(string value)
+    {
+        if (current is null) return "practice-option";
+        var classes = "practice-option";
+        if (selected == value) classes += " selected";
+        if (submitted && current.CanScore)
+        {
+            if (string.Equals(value, current.Answer, StringComparison.OrdinalIgnoreCase)) classes += " correct";
+            else if (selected == value) classes += " incorrect";
+        }
+        return classes;
+    }
+}
