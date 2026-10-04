@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <PackageReference Include="Markdig" Version="1.4.0" />
-    <PackageReference Include="TinyPinyin" Version="1.1.0" />
+    <PackageReference Include="ToolGood.Words.Pinyin" Version="3.1.0.4" />
   </ItemGroup>
 
 </Project>
